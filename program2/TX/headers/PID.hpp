@@ -1,25 +1,21 @@
-#ifndef PID_
-#define PID_
-#include <iostream>
-#include <cmath>
-class PIDImpl;
+#ifndef PID_H
+#define PID_H
+
 class PID
 {
-    public:
-        // Kp -  proportional gain
-        // Ki -  Integral gain
-        // Kd -  derivative gain
-        // dt -  loop interval time
-        // max - maximum value of manipulated variable
-        // min - minimum value of manipulated variable
-        PID( double dt, double max, double min, double Kp, double Kd, double Ki );
-
-        // Returns the manipulated variable given a setpoint and current process value
-        double calculate( double setpoint, double pv );
-        ~PID();
-
-    private:
-        PIDImpl *pimpl;
+	private:
+	double _Kp;
+	double _Kd;
+	double _Ki;
+	double _min;
+	double _max;
+	double _dt;
+	
+	double previous_error;
+	double integral;
+	public:
+	PID(double dt, double max, double min, double Kp, double Kd, double Ki);
+	double calculate(double setpoint, double measured_value);
 };
 
 #endif

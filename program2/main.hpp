@@ -1,6 +1,5 @@
 #ifndef MAIN_
 #define MAIN_
-#include "main.hpp"
 /**
  *  \brief glowna itfdd  cos tam cos tam wysyłanie
  *  \details Wykorzystywana po stronie odbiorczej i nadawczej.

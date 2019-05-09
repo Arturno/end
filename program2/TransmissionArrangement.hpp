@@ -1,5 +1,15 @@
 #ifndef TA_HH
 #define TA_HH
+/**
+ * @file TransmissionArrangement.hpp
+ * @author your name (you@domain.com)
+ * @brief Parametry Transmisji
+ * @version 0.1
+ * @date 2019-05-09
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
@@ -49,11 +59,12 @@ class TransmissionArrangement
      */
     void tochar(char[]);
 };
-    /**
-     * funkcja służąca do pobierania danych od użytkownika i sprawdzania czy podana wartość jest liczbą z konkretnego zakresu
-     * @param min minimalna dopuszczalna wartość
-     * @param max maksymalna dopuszczalna wartość
-     * @return wartość podana przez uzytkownika
-     */
+/**
+ * @brief Get the Number object
+ * 
+ * @param min 
+ * @param max 
+ * @return int 
+ */
 int getNumber(int min, int max);
 #endif

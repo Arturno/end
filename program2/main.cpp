@@ -1,7 +1,4 @@
-#include <iostream>
-#include "TX/headers/transmitter.hpp"
-#include "RX/headers/receiver.hpp"
-
+#include "main.hpp"
 using namespace std;
 
 int main()

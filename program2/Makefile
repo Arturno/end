@@ -5,7 +5,7 @@ CC = g++
 a.out: main.o transmitter.o receiver.o TransmissionArrangement.o adaptation.o PID.o sendingPackets.o ControlTX.o receiving.o Check.o savetofile.o ControlRX.o position.o serial.o
 	$(CC) main.o transmitter.o receiver.o TransmissionArrangement.o adaptation.o PID.o sendingPackets.o ControlTX.o receiving.o Check.o savetofile.o ControlRX.o position.o serial.o -pthread
 
-main.o: main.cpp  TX/headers/transmitter.hpp RX/headers/receiver.hpp 
+main.o: main.cpp  main.hpp TX/headers/transmitter.hpp RX/headers/receiver.hpp 
 	$(CC) -c -Wall -pedantic main.cpp 
 
 TransmissionArrangement.o: TransmissionArrangement.cpp TransmissionArrangement.hpp

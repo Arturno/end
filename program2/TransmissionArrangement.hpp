@@ -1,9 +1,5 @@
 #ifndef TA_HH
 #define TA_HH
-/* \brief Klasa służąca do ustanowienia poczatkowych parametrow transmisji.
- *        Wykorzystywana po stronie odbiorczej i nadawczej.
- *        Strona odbiorcza przesyła stronie nadawczej wymagania co do parametrów transmisji.
- */
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
@@ -18,16 +14,22 @@
 using namespace std;
 
 class TransmissionArrangement
+/**
+ *  \brief Klasa służąca do ustanowienia poczatkowych parametrow transmisji.
+ *  \details Wykorzystywana po stronie odbiorczej i nadawczej.
+ *               Strona odbiorcza przesyła stronie nadawczej wymagania co do parametrów transmisji.
+ */
 {
   public:
-    char name[100];     /** Dowolny ciąg znaków nadany przez użytkownika                           */
-    time_t date;        /** Data rozpoczęcia testu                                                 */
+    char name[100];     /**< Dowolny ciąg znaków nadany przez użytkownika                           */
+    time_t date;        /**< Data rozpoczęcia testu                                                 */
 
-    int packet_size;    /** Rozmiar pojedynczego pakietu                                           */
-    int protocol;       /** Rodzaj zastosowanego do transmisji protokołu                           */
-    int coverage;       /** W przypadku UDP-Lite, procent pokrycia pakietu sumą kodową             */ 
-    int bitrate;        /** Wymagana przepływność                                                  */
-    int PID_time;       /** Okres regulacji przepływności (częstotliwość wyznaczania korekcji PID) */
+    int packet_size;    /**< Rozmiar pojedynczego pakietu                                           */
+    int protocol;       /**< Rodzaj zastosowanego do transmisji protokołu                           */
+    int coverage;       /**< W przypadku UDP-Lite, procent pokrycia pakietu sumą kodową             */ 
+    int bitrate;        /**< Wymagana przepływność                                                  */
+    int PID_time;       /**< Okres regulacji przepływności (częstotliwość wyznaczania korekcji PID) */
+
     /**
      * Konstruktor klasy po stronie odbiorczej.
      * Pobiera od uzytkownika niezbędne dane i tworzy z nich obiekt.
@@ -36,14 +38,14 @@ class TransmissionArrangement
     /**
      * Konstruktor klasy po stronie nadawczej.
      * Przyjmuje dane od srtony odbiorczej, odpowiednio je dzieli i tworzy identyczny obiekt po stronie nadawczej.
-     * @param tab ciąg danych przesłany od strony nadawczej
+     * @param tablica[] ciąg danych przesłany od strony nadawczej
      */
-    TransmissionArrangement(char[] tab);
+    TransmissionArrangement(char[]);
     void print();
-    void getData();
+    void getDate();
     /**
-     * metoda służąca przekształceniu oobiektu klasy w ciąg dany nadający się do wysłania
-     * @param miejsce w ktorym zostanie zapisany przekształcony ciąg danych
+     * \brief metoda służąca przekształceniu oobiektu klasy w ciąg dany nadający się do wysłania
+     * @param tablica[] miejsce w ktorym zostanie zapisany przekształcony ciąg danych
      */
     void tochar(char[]);
 };

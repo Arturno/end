@@ -1,6 +1,10 @@
 #ifndef SEND_
 #define SEND_
-
+/**
+ *  \file cos tam cos tam wysyłanie
+ *  \details Wykorzystywana po stronie odbiorczej i nadawczej.
+ *               Strona odbiorcza przesyła stronie nadawczej wymagania co do parametrów transmisji.
+ */
 #include <iostream>
 #include <cstdio>
 #include <stdlib.h>

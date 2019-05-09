@@ -100,7 +100,7 @@ void TransmissionArrangement::tochar(char tablica[])
 
 //FUNKCJE DO WYPISYWANIA
 
-void TransmissionArrangement::getData()
+void TransmissionArrangement::getDate()
 ///wypisanie daty w formacie yyyy-mm-dd hh-mm-ss
 {
     date = time(NULL);
@@ -126,7 +126,7 @@ void TransmissionArrangement::print()
     cout << "#############################################################################" << endl;
     cout << "Nazwa testu:  .................................  " << name << endl;
     cout << "Data wykonania testu:  ........................  ";
-    getData();
+    getDate();
     cout << "Wymagana przepływność:  .......................  ";
     if (bitrate == 0)
         cout << "MAX "

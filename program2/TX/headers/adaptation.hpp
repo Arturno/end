@@ -15,7 +15,12 @@
 #include <climits>
 #include "PID.hpp"
 #include "ControlTX.hpp"
-
+/**
+ * @brief 
+ * 
+ * @param ctr 
+ * @param PID_time 
+ */
 void adaptation(Control &ctr, int PID_time);
 
 #endif AD

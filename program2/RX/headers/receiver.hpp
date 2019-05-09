@@ -1,6 +1,15 @@
 #ifndef RX
 #define RX
-
+/**
+ * @file receiver.hpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2019-05-09
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include <iostream>
 #include <cstdio>
 #include <stdlib.h>    // exit()
@@ -14,7 +23,10 @@
 #include "ControlRX.hpp"
 #include "position.hpp"
 
-
+/**
+ * @brief 
+ * 
+ */
 void receiver();
 
 #endif

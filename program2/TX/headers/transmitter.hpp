@@ -1,6 +1,15 @@
 #ifndef TX
 #define TX
-
+/**
+ * @file transmitter.hpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2019-05-09
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include <iostream>
 #include <cstdio>
 #include <stdlib.h>    // exit()
@@ -13,7 +22,10 @@
 #include "adaptation.hpp"
 #include "ControlTX.hpp"
 
-
+/**
+ * @brief 
+ * 
+ */
 void transmitter();
 
 #endif

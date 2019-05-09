@@ -1,6 +1,9 @@
 #ifndef PID_H
 #define PID_H
-
+/**
+ * @brief 
+ * 
+ */
 class PID
 {
 	private:
@@ -14,7 +17,24 @@ class PID
 	double previous_error;
 	double integral;
 	public:
+	/**
+	 * @brief Construct a new PID object
+	 * 
+	 * @param dt 
+	 * @param max 
+	 * @param min 
+	 * @param Kp 
+	 * @param Kd 
+	 * @param Ki 
+	 */
 	PID(double dt, double max, double min, double Kp, double Kd, double Ki);
+	/**
+	 * @brief 
+	 * 
+	 * @param setpoint 
+	 * @param measured_value 
+	 * @return double 
+	 */
 	double calculate(double setpoint, double measured_value);
 };
 

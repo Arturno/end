@@ -17,9 +17,42 @@
 #include <limits.h>
 #define SOL_UDPLITE 136
 #define UDPLITE_SEND_CSCOV 10
-
+/**
+ * @brief 
+ * 
+ * @param TX 
+ * @param RX 
+ * @param rozmiar_pakietu 
+ * @param delay 
+ * @param packet_group 
+ * @param counter 
+ * @param state 
+ */
 void send_UDP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &delay, int &packet_group, unsigned int &counter, int &state);
+/**
+ * @brief 
+ * 
+ * @param TX 
+ * @param RX 
+ * @param rozmiar_pakietu 
+ * @param delay 
+ * @param packet_group 
+ * @param coverage 
+ * @param counter 
+ * @param state 
+ */
 void send_UDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &delay, int &packet_group, int coverage, unsigned int &counter, int &state);
+/**
+ * @brief 
+ * 
+ * @param TX 
+ * @param RX 
+ * @param rozmiar_pakietu 
+ * @param delay 
+ * @param packet_group 
+ * @param counetr 
+ * @param state 
+ */
 void send_TCP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &delay, int &packet_group, unsigned int &counetr, int &state);
 
 #endif

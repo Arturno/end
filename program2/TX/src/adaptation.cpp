@@ -1,7 +1,7 @@
 #include "../headers/adaptation.hpp"
 
 using namespace std;
-void adaptation(Control &ctr, int PID_time)
+void adaptation(ControlTX &ctr, int PID_time)
 {
     sleep(1);
     int send_packets = ctr.counter / ctr.packet_group;

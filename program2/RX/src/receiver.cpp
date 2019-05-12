@@ -69,32 +69,31 @@ void receiver()
         exit(6);
     }
     //koniec ogolnego
-    int pol=0;
-    SterowanieRX sterRX(pol);
+    ControlRX ctr(parameters.bitrate, parameters.packet_size);
     CheckPackets chk;
 
 
-    thread sterowanieProgramem(ControlRX, ref(sterRX.stan), ref(parameters.bitrate), socketTCP_);
+    thread sterowanieProgramem(Control_RX, ref(ctr), ref(parameters.bitrate), socketTCP_);
 
-    thread Output(meas_and_save, ref(parameters),ref(sterRX.polozenie), ref(sterRX.licznik), ref(sterRX.stan), ref(chk));
-    //thread poz(pozycja, ref(sterRX.polozenie), ref(sterRX.stan));
+    thread Output(meas_and_save, ref(parameters),ref(ctr), ref(chk));
+    //thread poz(pozycja, ref(ctr));
 
 
     switch (parameters.protocol)
     {
     case 0:
     {
-        odbieranieUDP(TX_meas, RX_meas, parameters.packet_size, sterRX.licznik, sterRX.stan, ref(chk));
+        odbieranieUDP(TX_meas, RX_meas, ctr.packet_size, ctr.counter, ctr.state, chk);
         break;
     }
     case 1:
     {
-        odbieranieUDPLite(TX_meas, RX_meas, parameters.packet_size, parameters.coverage,sterRX.licznik, sterRX.stan);
+        odbieranieUDPLite(TX_meas, RX_meas, ctr.packet_size, parameters.coverage, ctr.counter, ctr.state);
         break;
     }
     case 2:
     {
-        odbieranieTCP(TX_meas, RX_meas, parameters.packet_size, sterRX.licznik, sterRX.stan);
+        odbieranieTCP(TX_meas, RX_meas, ctr.packet_size, ctr.counter, ctr.state);
         break;
     }
     }

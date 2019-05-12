@@ -15,7 +15,7 @@
 #include <sys/socket.h>
 #include "../../TransmissionArrangement.hpp"
 
-class Control
+class ControlTX
 {
   public:
     int state;
@@ -28,7 +28,7 @@ class Control
      * @brief Construct a new Control object
      * 
      */
-    Control(int, int);
+    ControlTX(int, int);
     /**
      * @brief 
      * 
@@ -48,6 +48,6 @@ class Control
  * @param ctr 
  * @param socket_ 
  */
-void ControlTX(int &state, class Control &ctr, int socket_);
+void Control_TX(class ControlTX &ctr, int socket_);
 
 #endif 

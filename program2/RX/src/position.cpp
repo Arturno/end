@@ -1,7 +1,7 @@
 
 #include "../headers/position.hpp"
 
-void position(int &position, int &end)
+void position(ControlRX &ctr)
 {
 
     int fenc = open("/dev/ttyACM0", O_RDWR | O_NOCTTY | O_SYNC);
@@ -13,11 +13,11 @@ void position(int &position, int &end)
 
     set_interface_attribs(fenc, B9600, 0); // set speed to 115,200 bps, 8n1 (no parity)
     set_blocking(fenc, 0);                 // set no blocking
-    while(end)
+    while(ctr.state)
     {
     int temp = getPosition(fenc);
     if(temp!=0)
-    position=temp;
+    ctr.position=temp;
     //std::cout<<position<<std::endl;
     }
 }

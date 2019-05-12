@@ -1,9 +1,9 @@
 #include "../headers/receiving.hpp"
 using namespace std;
 
-void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &licznik, int &stan, class CheckPackets &chk)
+void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX,int packet_size ,unsigned int &counter, int &state, class CheckPackets &chk)
 {
-    thread tututu(check, ref(chk), ref(stan));
+    thread tututu(check, ref(chk), ref(state));
     const int socket_ = socket(AF_INET, SOCK_DGRAM, 0);
     if (socket_ < 0)
     {
@@ -17,13 +17,13 @@ void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pak
         exit(3);
     }
 
-    while (stan)
+    while (state)
     {
         //if(((spr.dodawanie+1)%100)==spr.sprawdzanie)
         //{
         //     cout<<"errrr"<<endl;
         // }
-        if (recvfrom(socket_, chk.add(), rozmiar_pakietu, 0, (struct sockaddr *)&RX, &len) < 0)
+        if (recvfrom(socket_, chk.add(), packet_size, 0, (struct sockaddr *)&RX, &len) < 0)
         {
             perror("recvfrom() ERROR");
             exit(4);
@@ -34,14 +34,14 @@ void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pak
         cout<<nrpakietu<<" ";
         strncpy(bufor, &(buffer[10]),sizeof(bufor));
         cout<<bufor<<endl;*/
-        licznik++;
+        counter++;
     }
     tututu.join();
     //spr.pomiar();
     shutdown(socket_, SHUT_RDWR);
 }
 
-void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int kodowanie, int &licznik, int &stan)
+void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int kodowanie,unsigned int &licznik, int &stan)
 {
     char buffer[rozmiar_pakietu] = {};
     const int socket_ = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDPLITE);
@@ -69,7 +69,7 @@ void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar
     shutdown(socket_, SHUT_RDWR);
 }
 
-void odbieranieTCP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &licznik, int &stan)
+void odbieranieTCP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu,unsigned int &licznik, int &stan)
 {
     const int socket_ = socket(AF_INET, SOCK_STREAM, 0);
     char buffer[rozmiar_pakietu] = {};

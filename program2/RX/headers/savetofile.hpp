@@ -15,6 +15,8 @@
 #include <fstream>
 #include <stdlib.h>
 #include "../../TransmissionArrangement.hpp"
+#include "Measure.hpp"
+#include "ControlRX.hpp"
 using namespace std;
 /**
  * @brief 
@@ -38,7 +40,7 @@ string signal_level();
  * @param state 
  * @param chk 
  */
-void meas_and_save(class TransmissionArrangement &parameters,int &position,int &counter, int &state, class CheckPackets &chk);
+void meas_and_save(class TransmissionArrangement &parameters, class ControlRX &ctr, class CheckPackets &chk);
 
 
 #endif

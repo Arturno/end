@@ -10,7 +10,7 @@ CheckPackets::CheckPackets()
     lost = 0;
     not_in_order = false;
     err = false;
-    nrpakietu = 0;
+    //nrpakietu = 0;
     packet_size = 1000;
 }
 
@@ -51,14 +51,14 @@ double CheckPackets::pomiar()
     //cout << "DODANE " << dodane << endl;
     //cout << "SPRAWDZONE " << sprawdzone << endl;
     //cout << "BLAD" << blad << endl;
-    bledybledy =(double)((checked * packet_size) - bit_errors) / (checked * packet_size)*100;
+    errors =(double)((checked * packet_size) - bit_errors) / (checked * packet_size)*100;
     added = 0;
     checked = 0;
     bit_errors = 0;
     lost = 0;
     not_in_order = false;
     err = false;
-    return bledybledy;
+    return errors;
 }
 
 void check(class CheckPackets &chk, int &state)

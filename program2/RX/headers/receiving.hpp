@@ -2,12 +2,7 @@
 #define RCV
 /**
  * @file receiving.hpp
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2019-05-09
- * 
- * @copyright Copyright (c) 2019
+ * @brief Plik z fukcjami do odbioru pakietów przesłanych za pomocą różnych protokołów
  * 
  */
 #include <iostream>
@@ -23,18 +18,18 @@
 #define SOL_UDPLITE 136
 #define UDPLITE_RECV_CSCOV 11
 /**
- * @brief 
+ * @brief Funkcja realizująca odbiór UDP
  * 
- * @param TX 
- * @param RX 
- * @param rozmiar_pakietu 
- * @param licznik 
- * @param stan 
+ * @param TX adres strony nadawczej
+ * @param RX adres strony odbiorczej
+ * @param rozmiar_pakietu rozmiar przesyłanego pakietu
+ * @param licznik liczba odebranych pakietów
+ * @param stan zmienna kontrolująca czy nadal nalezy odbirać pakiety
  * @param chk 
  */
-void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &licznik, int &stan, class CheckPackets &chk);
+void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size ,unsigned int &counter, int &state, class CheckPackets &chk);
 /**
- * @brief 
+ * @brief Funkcja realizująca odbiór UDP-Lite
  * 
  * @param TX 
  * @param RX 
@@ -43,7 +38,7 @@ void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pak
  * @param licznik 
  * @param stan 
  */
-void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int kodowanie, int &licznik, int &stan);
+void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int kodowanie,unsigned int &licznik, int &stan);
 /**
  * @brief 
  * 
@@ -53,6 +48,6 @@ void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar
  * @param licznik 
  * @param stan 
  */
-void odbieranieTCP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &licznik, int &stan);
+void odbieranieTCP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu,unsigned int &licznik, int &stan);
 
 #endif 

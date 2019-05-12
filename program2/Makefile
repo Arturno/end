@@ -2,8 +2,8 @@
 # (właściwie wystarczy wpisać 'make' - all jest domyślny jako pierwszy cel)
 CC = g++
 
-a.out: main.o transmitter.o receiver.o TransmissionArrangement.o adaptation.o PID.o sendingPackets.o ControlTX.o receiving.o Check.o savetofile.o ControlRX.o position.o serial.o
-	$(CC) main.o transmitter.o receiver.o TransmissionArrangement.o adaptation.o PID.o sendingPackets.o ControlTX.o receiving.o Check.o savetofile.o ControlRX.o position.o serial.o -pthread
+a.out: main.o transmitter.o receiver.o TransmissionArrangement.o adaptation.o PID.o sendingPackets.o ControlTX.o receiving.o Check.o savetofile.o ControlRX.o position.o serial.o Measure.o
+	$(CC) main.o transmitter.o receiver.o TransmissionArrangement.o adaptation.o PID.o sendingPackets.o ControlTX.o receiving.o Check.o savetofile.o ControlRX.o position.o serial.o Measure.o -pthread
 
 main.o: main.cpp  main.hpp TX/headers/transmitter.hpp RX/headers/receiver.hpp 
 	$(CC) -c -Wall -pedantic main.cpp 
@@ -38,8 +38,11 @@ receiving.o: RX/src/receiving.cpp RX/headers/receiving.hpp TransmissionArrangeme
 Check.o: RX/src/Check.cpp RX/headers/Check.hpp RX/headers/savetofile.hpp TransmissionArrangement.hpp
 	$(CC) -c -Wall -pedantic RX/src/Check.cpp
 
-savetofile.o: RX/src/savetofile.cpp RX/headers/savetofile.hpp TransmissionArrangement.hpp RX/headers/position.hpp
+savetofile.o: RX/src/savetofile.cpp RX/headers/savetofile.hpp TransmissionArrangement.hpp RX/headers/ControlRX.hpp RX/headers/Measure.hpp
 	$(CC) -c -Wall -pedantic RX/src/savetofile.cpp
+
+Measure.o: RX/src/Measure.cpp RX/headers/Measure.hpp RX/headers/ControlRX.hpp RX/headers/Check.hpp
+	$(CC) -c -Wall -pedantic RX/src/Measure.cpp
 
 ControlRX.o: RX/src/ControlRX.cpp RX/headers/ControlRX.hpp 
 	$(CC) -c -Wall -pedantic RX/src/ControlRX.cpp

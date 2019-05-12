@@ -68,14 +68,14 @@ void transmitter()
 
     TransmissionArrangement parameters(buffer);
     parameters.print();
-    Control ctr(parameters.bitrate, parameters.packet_size);
+    ControlTX ctr(parameters.bitrate, parameters.packet_size);
     cout<<"#############################################################################"<<endl;
     cout<<"Sterowanie programem"<<endl;
     cout<<"M xxx - zmiana przepływności na wartość xxx Mb/s"<<endl;
     cout<<"E - zakonczenie pomiaru"<<endl;
 
 
-        thread UserCommunication(ControlTX, ref(ctr.state), ref(ctr), RXSocket);
+        thread UserCommunication(Control_TX, ref(ctr), RXSocket);
         thread Adapt(adaptation, ref(ctr), parameters.PID_time);
         //thread pomiaaar(pomiar, ref(ster.stan), ref(ster.licznik), ref(ster.grupa_pakietow), ster.rozmiar_pakietu);
 
@@ -84,24 +84,24 @@ void transmitter()
         case 0:
         {
             //thread wysylanie(wysylanieUDP, TX, RX, ref(parametry.rozmiar_pakietu), ref(ster.opoznienie), ref(ster.grupa_pakietow), ref(ster.licznik), ref(ster.stan));
-            send_UDP(TX_meas, RX_meas, parameters.packet_size, ctr.delay, ctr.packet_group, ctr.counter, ctr.state);
+            send_UDP(TX_meas, RX_meas, ctr.packet_size, ctr.delay, ctr.packet_group, ctr.counter, ctr.state);
             break;
         }
         case 1:
         {
             //thread wysylanie(wysylanieUDPLite, TX, RX, ref(parametry.rozmiar_pakietu), ref(ster.opoznienie), ref(ster.grupa_pakietow),parametry.kodowanie, ref(ster.licznik), ref(ster.stan));
-            send_UDPLite(TX_meas, RX_meas, parameters.packet_size, ctr.delay, ctr.packet_group, parameters.coverage, ctr.counter, ctr.state);
+            send_UDPLite(TX_meas, RX_meas, ctr.packet_size, ctr.delay, ctr.packet_group, parameters.coverage, ctr.counter, ctr.state);
             break;
         }
         case 2:
         {
             //thread wysylanie(wysylanieTCP, TX, RX, ref(parametry.rozmiar_pakietu), ref(ster.opoznienie), ref(ster.grupa_pakietow), ref(ster.licznik), ref(ster.stan));
-            send_TCP(TX_meas, RX_meas, parameters.packet_size, ctr.delay, ctr.packet_group, ctr.counter, ctr.state);
+            send_TCP(TX_meas, RX_meas, ctr.packet_size, ctr.delay, ctr.packet_group, ctr.counter, ctr.state);
             break;
         }
         }
-        UserCommunication.join();
-        Adapt.join();
+    UserCommunication.join();
+    Adapt.join();
         //pomiaaar.join();
     
     //wysylanie.join()

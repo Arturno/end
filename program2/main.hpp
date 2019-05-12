@@ -1,9 +1,9 @@
 #ifndef MAIN_
 #define MAIN_
 /**
- *  \brief glowna itfdd  cos tam cos tam wysyłanie
- *  \details Wykorzystywana po stronie odbiorczej i nadawczej.
- *               Strona odbiorcza przesyła stronie nadawczej wymagania co do parametrów transmisji.
+ *  \brief Główna fukcja programu
+ *  \details Pbobiera od użytkownika informację w jakim trybie uruchomić program odbiorczym/nadawczym
+ *             
  */
 
 #include <iostream>

@@ -1,9 +1,30 @@
 #include "../headers/ControlRX.hpp"
 
-void ControlRX(int &stan, int &przeplywnosc, int socket_)
+ControlRX::ControlRX(int bitrate, int new_packet_size)
+{
+    state = 1;
+    counter = 0;
+    packet_size = new_packet_size;
+    position = 0;
+    if (((bitrate * 1000000) / (packet_size * 8) * 0.001) < 1)
+    {
+        packet_group = 1;
+    }
+    else
+    {
+        packet_group = (bitrate * 1000000) / (packet_size * 8) * 0.001;
+    }
+}
+
+void ControlRX::end_program()
+{
+    state = 0;
+}
+
+void Control_RX(ControlRX &ctr, int &bitrate, int socket_)
 {
     char buffer[150] = {};
-    while (stan)
+    while (ctr.state)
     {
         if (recv(socket_, buffer, sizeof(buffer), 0) <= 0)
         {
@@ -12,21 +33,14 @@ void ControlRX(int &stan, int &przeplywnosc, int socket_)
         }
         if(buffer[0] == 0)
         {
-            stan = 0;
+            ctr.end_program();
             cout<<"Koniec testu"<<endl;
             break;
         }
         else
         {
-        przeplywnosc = atoi(buffer);
-        cout<<"Zmieniono przelywnosc na: "<<przeplywnosc<<endl;
+        bitrate = atoi(buffer);
+        cout<<"Zmieniono przelywnosc na: "<<bitrate<<endl;
         }
     }
-}
-SterowanieRX::SterowanieRX(int pol)
-{
-    stan = 1;
-    licznik =0;
-    polozenie = pol;
-    stopa_bledow =0;
 }

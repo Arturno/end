@@ -21,6 +21,6 @@
  * @param ctr 
  * @param PID_time 
  */
-void adaptation(Control &ctr, int PID_time);
+void adaptation(ControlTX &ctr, int PID_time);
 
 #endif AD

@@ -14,26 +14,19 @@
 #include <string.h>
 #include <sys/socket.h>
 using namespace std;
-
-void ControlRX(int &stan, int &przeplywnosc, int socket_);
-
-class SterowanieRX
-/**
- * @brief 
- * 
- */
+class ControlRX
 {
-    public:
-    int stan;
-    int licznik;
-    int polozenie;
-    double stopa_bledow;
+    public: 
+    int state;
+    unsigned int counter;
+    int packet_group;
+    int packet_size;
+    int position;
 
-    /**
-     * @brief Construct a new Sterowanie R X object
-     * 
-     */
-    SterowanieRX(int );
+    ControlRX(int, int);
+    void end_program();
+
 };
+void Control_RX(ControlRX &ctr, int &bitrate, int socket_);
 
 #endif

@@ -1,37 +1,42 @@
 #include "serial.hpp"
 #include <time.h>
 #include <iostream>
+#include "ControlRX.hpp"
 /**
- * @brief 
- * 
- * @param position 
- * @param end 
+ * @file position.hpp
+ * @brief Plik przechowujący fukncje wykorzystywane do odbioru danych z enkodera
  */
 
+/**
+ * @brief funkcja cyklicznie pobierajaca dane
+ * 
+ * @param position pozycja odebrana od enkodera
+ * @param end zmienna stanu programu informujaca czy należy dalej odbierać dane
+ */
 void position(int &position, int &end);
 typedef struct
 /**
- * @brief 
+ * @brief stuktura przechowująca wartość zwracaną od enkodera
  * 
  */
 {
-    bool correctly_parsed;
-    int position;         // position in meters
+    bool correctly_parsed;         /**< zmienna przechowująca informacje czy dane zostaly poprawnie sparsowane*/
+    int position;                  /**< pozycja zwracana od enkodera*/ 
 }position_t;
 /**
- * @brief 
+ * @brief funkcja sprawdzająca czy dane które zostały odebrane od enkodera są poprawne
  * 
- * @param a 
- * @param b 
- * @param parsed 
- * @return true 
- * @return false 
+ * @param a pozycja odebrana od enkodera
+ * @param b suma kontrolna
+ * @param parsed zmienna przechowujaca informacje czy dane zostaly poprawnie sparsowane
+ * @return true podana wartość może zostać uznana za poprawną
+ * @return false podana wartość jest niepoprawna i zostanie odrzucona
  */
 bool check(int a, int b, bool parsed);
 /**
- * @brief Get the Position object
+ * @brief funkcja pobierająca i parsująca dane od enkodera
  * 
- * @param fenc 
- * @return int 
+ * @param fenc adres enkodera
+ * @return int aktualna wartosc pozycji
  */
 int getPosition(int fenc);

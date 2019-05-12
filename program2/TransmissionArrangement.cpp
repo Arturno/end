@@ -1,6 +1,7 @@
 #include "TransmissionArrangement.hpp"
 
 int getNumber(int min, int max)
+///pobieranie liczby od użytkownika
 {
     int temp;
     string cl;
@@ -9,7 +10,7 @@ int getNumber(int min, int max)
         cin >> temp;
         if (!cin)
         {
-            cin.clear(); // czyścimy flagi błędu strumienia
+            cin.clear(); 
             cin.sync();
             cout << "Podana wartość nie jest liczbą." << endl;
             getline(cin, cl);
@@ -25,9 +26,8 @@ int getNumber(int min, int max)
     return temp;
 }
 
-//FUNKCJE DO TWORZENIA STRUKTUR
 TransmissionArrangement::TransmissionArrangement()
-//tworzenie strunktury po stronie RX za pomocą  podawania wartości
+///konstruktor po stronie nadawczej
 {
     cout << "Podaj nazwę testu:" << endl;
     cin >> name;
@@ -54,6 +54,7 @@ TransmissionArrangement::TransmissionArrangement()
     date = time(NULL);
 }
 TransmissionArrangement::TransmissionArrangement(char tablica[])
+///konstruktor po stronie odbiorczej
 {
     int shift = 0;
     char transfer[4];
@@ -77,6 +78,7 @@ TransmissionArrangement::TransmissionArrangement(char tablica[])
 }
 
 void TransmissionArrangement::tochar(char tablica[])
+///przeksztalcenie obiektu w ciag znakow
 {
     int shift = 0;
     char transfer[4];
@@ -101,7 +103,7 @@ void TransmissionArrangement::tochar(char tablica[])
 //FUNKCJE DO WYPISYWANIA
 
 void TransmissionArrangement::getDate()
-///wypisanie daty w formacie yyyy-mm-dd hh-mm-ss
+///wypisanie daty w formacie yyyy-mm-dd hh:mm:ss
 {
     date = time(NULL);
     tm *temp;
@@ -121,6 +123,7 @@ void OgolneInfo::getAddress()
 }
 */
 void TransmissionArrangement::print()
+///wypisanie zawartości obiektu
 {
     cout << endl;
     cout << "#############################################################################" << endl;

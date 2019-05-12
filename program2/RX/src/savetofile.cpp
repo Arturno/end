@@ -1,4 +1,4 @@
-#include "../headers/Check.hpp"
+#include "../headers/savetofile.hpp"
 #include <fstream>
 
 string cr_filename(class TransmissionArrangement parameters)
@@ -52,7 +52,7 @@ string signal_level()
     return signal_level;
 }
 
-void meas_and_save(class TransmissionArrangement &parameters,int &position,int &counter, int &state, class CheckPackets &chk)
+void meas_and_save(TransmissionArrangement &parameters , ControlRX &ctr, CheckPackets &chk)
 {
 
     fstream file;
@@ -64,23 +64,12 @@ void meas_and_save(class TransmissionArrangement &parameters,int &position,int &
         file<<"Kodowanie:       "<<parameters.coverage<<endl;
     };
     file << "Numer pomiaru, polozenie, poziom sygnału, jakość linku, liczba odebranych pakietów, przepływność"<<endl;
-    int previously_send = 0;
-    int send = 0;
-    int no_of_meas =0;
-    while (state)
+    Measure meas;
+    while (ctr.state)
     {
-        no_of_meas ++;
-        previously_send = send;
         sleep(1);
-        if (previously_send <= counter)
-        {
-            send = counter - previously_send;
-        }
-        else
-        {
-            send = INT_MAX - previously_send + counter - INT_MIN;
-        }
-        file << no_of_meas<<",\t "<<position<<",\t"<< signal_level()<<",\t " <<  send  << ",\t "<< (double)send /(125000/parameters.packet_size)<< ",\t "<< chk.pomiar()<<endl;
+        meas.collectData(ctr,chk);
+        file <<meas.getResult()<<endl;
     }
     file.close();
 }

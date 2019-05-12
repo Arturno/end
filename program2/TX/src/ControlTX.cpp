@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Control::Control(int bitrate, int new_packet_size)
+ControlTX::ControlTX(int bitrate, int new_packet_size)
 {
     state = 1;
     counter = 0;
@@ -19,7 +19,7 @@ Control::Control(int bitrate, int new_packet_size)
     }
 }
 
-void Control::change_bitrate(int bitrate)
+void ControlTX::change_bitrate(int bitrate)
 {
     to_send = (bitrate * 1000000) / (packet_size * 8);
     if ((to_send * 0.001) < 1)
@@ -32,15 +32,15 @@ void Control::change_bitrate(int bitrate)
 }
 
 
-void Control::end_program()
+void ControlTX::end_program()
 {
     state = 0;
 }
-void ControlTX(int &state, class Control &ctr, int socket_)
+void Control_TX(ControlTX &ctr, int socket_)
 {
     char change = {};
     char buffer[150];
-    while (state)
+    while (ctr.state)
     {
         cin >> change;
         switch (change)

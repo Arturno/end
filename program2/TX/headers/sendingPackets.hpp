@@ -28,7 +28,7 @@
  * @param counter 
  * @param state 
  */
-void send_UDP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &delay, int &packet_group, unsigned int &counter, int &state);
+void send_UDP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, int &delay, int &packet_group, unsigned int &counter, int &state);
 /**
  * @brief 
  * 
@@ -41,7 +41,7 @@ void send_UDP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu,
  * @param counter 
  * @param state 
  */
-void send_UDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &delay, int &packet_group, int coverage, unsigned int &counter, int &state);
+void send_UDPLite(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, int &delay, int &packet_group, int coverage, unsigned int &counter, int &state);
 /**
  * @brief 
  * 
@@ -53,6 +53,6 @@ void send_UDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_paki
  * @param counetr 
  * @param state 
  */
-void send_TCP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int &delay, int &packet_group, unsigned int &counetr, int &state);
+void send_TCP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, int &delay, int &packet_group, unsigned int &counetr, int &state);
 
 #endif

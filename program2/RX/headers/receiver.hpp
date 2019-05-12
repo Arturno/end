@@ -2,13 +2,7 @@
 #define RX
 /**
  * @file receiver.hpp
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2019-05-09
- * 
- * @copyright Copyright (c) 2019
- * 
+ * @brief Plik przechowujący funkcję odpowiedzialna za odbieranie danych
  */
 #include <iostream>
 #include <cstdio>
@@ -24,7 +18,9 @@
 #include "position.hpp"
 
 /**
- * @brief 
+ * @brief Strona Odbiorcza programu
+ * @details fukcja realizująca część odbiorczą programu 
+ *          odpowiada za komunikację z użytkownikiem, odbiór, pomiar i zapis danych do pliku
  * 
  */
 void receiver();

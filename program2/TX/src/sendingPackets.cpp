@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void send_UDP(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size, int &delay, int &packet_group,unsigned int &counter, int &state)
+void send_UDP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, int &delay, int &packet_group,unsigned int &counter, int &state)
 {
     char buffer[packet_size] = {};
     srand(50);
@@ -17,7 +17,7 @@ void send_UDP(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size, int
         perror("socket() ERROR");
         exit(2);
     }
-    if (bind(socket_, (struct sockaddr *)&TX, sizeof(TX)) < 0)
+    if (bind(socket_, (struct sockaddr *)&TX_meas, sizeof(TX_meas)) < 0)
     {
         perror("bind() ERROR");
         exit(3);
@@ -27,7 +27,7 @@ void send_UDP(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size, int
         for (int i = 0; i < packet_group; i++)
         {
             sprintf(buffer, "%d", counter);
-            if (sendto(socket_, buffer, sizeof(buffer), 0, (struct sockaddr *)&RX, sizeof(RX)) < 0)
+            if (sendto(socket_, buffer, sizeof(buffer), 0, (struct sockaddr *)&RX_meas, sizeof(RX_meas)) < 0)
             {
                 perror("sendto() ERROR");
                 exit(5);
@@ -38,7 +38,7 @@ void send_UDP(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size, int
         //cout << "Wsłano UDP" << endl;
     }
     usleep(100000);
-    if (sendto(socket_, buffer, strlen(buffer), 0, (struct sockaddr *)&RX, sizeof(RX)) < 0)
+    if (sendto(socket_, buffer, strlen(buffer), 0, (struct sockaddr *)&RX_meas, sizeof(RX_meas)) < 0)
     {
         perror("sendto() ERROR");
         exit(5);
@@ -46,7 +46,7 @@ void send_UDP(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size, int
 
     shutdown(socket_, SHUT_RDWR);
 }
-void send_UDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size, int &delay, int &packet_group, int coverage,unsigned int &counter, int &state)
+void send_UDPLite(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, int &delay, int &packet_group, int coverage,unsigned int &counter, int &state)
 {
     char buffer[packet_group] = {};
     srand(50);
@@ -62,7 +62,7 @@ void send_UDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size,
         exit(2);
     }
     setsockopt(socket_, SOL_UDPLITE, UDPLITE_SEND_CSCOV, &coverage, sizeof(int));
-    if (bind(socket_, (struct sockaddr *)&TX, sizeof(TX)) < 0)
+    if (bind(socket_, (struct sockaddr *)&TX_meas, sizeof(TX_meas)) < 0)
     {
         perror("bind() ERROR");
         exit(3);
@@ -72,7 +72,7 @@ void send_UDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size,
         for (int i = 0; i < packet_group; i++)
         {
             sprintf(buffer, "%d", wyslane);
-            if (sendto(socket_, buffer, strlen(buffer), 0, (struct sockaddr *)&RX, sizeof(RX)) < 0)
+            if (sendto(socket_, buffer, strlen(buffer), 0, (struct sockaddr *)&RX_meas, sizeof(RX_meas)) < 0)
             {
                 perror("sendto() ERROR");
                 exit(5);
@@ -83,14 +83,14 @@ void send_UDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size,
         usleep(delay);
     }
     usleep(100000);
-    if (sendto(socket_, buffer, strlen(buffer), 0, (struct sockaddr *)&RX, sizeof(RX)) < 0)
+    if (sendto(socket_, buffer, strlen(buffer), 0, (struct sockaddr *)&RX_meas, sizeof(RX_meas)) < 0)
     {
         perror("sendto() ERROR");
         exit(5);
     };
     shutdown(socket_, SHUT_RDWR);
 }
-void send_TCP(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size, int &delay, int &packet_group,unsigned int &counter, int &state)
+void send_TCP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, int &delay, int &packet_group,unsigned int &counter, int &state)
 {
     char buffer[packet_size] = {};
     srand(50);
@@ -107,12 +107,12 @@ void send_TCP(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size, int
     }
     int opt = 1;
     setsockopt(socket_, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
-    if (bind(socket_, (struct sockaddr *)&TX, sizeof(TX)) < 0)
+    if (bind(socket_, (struct sockaddr *)&TX_meas, sizeof(TX_meas)) < 0)
     {
         perror("bind() ERROR");
         exit(3);
     }
-    connect(socket_, (struct sockaddr *)&RX, sizeof(RX));
+    connect(socket_, (struct sockaddr *)&RX_meas, sizeof(RX_meas));
     while (state)
     {
         for (int i = 0; i <= packet_group; i++)

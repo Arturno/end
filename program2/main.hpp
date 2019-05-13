@@ -2,7 +2,7 @@
 #define MAIN_
 /**
  *  \brief Główna fukcja programu
- *  \details Pbobiera od użytkownika informację w jakim trybie uruchomić program odbiorczym/nadawczym
+ *  \details Pobiera od użytkownika informację w jakim trybie uruchomić program odbiorczym/nadawczym
  *             
  */
 

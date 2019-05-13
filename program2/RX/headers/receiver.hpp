@@ -2,7 +2,7 @@
 #define RX
 /**
  * @file receiver.hpp
- * @brief Plik przechowujący funkcję odpowiedzialna za odbieranie danych
+ * @brief Plik przechowujący część programu po stronie odbiorczej
  */
 #include <iostream>
 #include <cstdio>

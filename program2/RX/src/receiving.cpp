@@ -1,7 +1,7 @@
 #include "../headers/receiving.hpp"
 using namespace std;
 
-void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX,int packet_size ,unsigned int &counter, int &state, class CheckPackets &chk)
+void odbieranieUDP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas,int packet_size ,unsigned int &counter, int &state, class CheckPackets &chk)
 {
     thread tututu(check, ref(chk), ref(state));
     const int socket_ = socket(AF_INET, SOCK_DGRAM, 0);
@@ -10,8 +10,8 @@ void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX,int packet_size 
         perror("socket() ERROR");
         exit(2);
     }
-    socklen_t len = sizeof(RX);
-    if (bind(socket_, (struct sockaddr *)&RX, len) < 0)
+    socklen_t len = sizeof(RX_meas);
+    if (bind(socket_, (struct sockaddr *)&RX_meas, len) < 0)
     {
         perror("bind() ERROR");
         exit(3);
@@ -23,7 +23,7 @@ void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX,int packet_size 
         //{
         //     cout<<"errrr"<<endl;
         // }
-        if (recvfrom(socket_, chk.add(), packet_size, 0, (struct sockaddr *)&RX, &len) < 0)
+        if (recvfrom(socket_, chk.add(), packet_size, 0, (struct sockaddr *)&RX_meas, &len) < 0)
         {
             perror("recvfrom() ERROR");
             exit(4);

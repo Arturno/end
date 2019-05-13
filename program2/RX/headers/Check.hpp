@@ -2,7 +2,7 @@
 #define CHK
 /**
  * @file Check.hpp
- * @brief Plik przechowujacy klasę CheckPackets i funkcje przez nią wykorzytsywane
+ * @brief Plik przechowujacy klasę CheckPackets i funkcje przez nią wykorzystywane
  * 
  */
 #include <iostream>

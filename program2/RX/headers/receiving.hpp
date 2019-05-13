@@ -22,32 +22,32 @@
  * 
  * @param TX adres strony nadawczej
  * @param RX adres strony odbiorczej
- * @param rozmiar_pakietu rozmiar przesyłanego pakietu
- * @param licznik liczba odebranych pakietów
- * @param stan zmienna kontrolująca czy nadal nalezy odbirać pakiety
+ * @param packet_size rozmiar przesyłanego pakietu
+ * @param counter liczba odebranych pakietów
+ * @param state zmienna kontrolująca czy nadal nalezy odbirać pakiety
  * @param chk 
  */
-void odbieranieUDP(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size ,unsigned int &counter, int &state, class CheckPackets &chk);
+void odbieranieUDP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size ,unsigned int &counter, int &state, class CheckPackets &chk);
 /**
  * @brief Funkcja realizująca odbiór UDP-Lite
  * 
- * @param TX 
- * @param RX 
- * @param rozmiar_pakietu 
- * @param kodowanie 
- * @param licznik 
- * @param stan 
+ * @param TX adres strony nadawczej
+ * @param RX adres strony odbiorczej
+ * @param packet_size rozmiar przesyłanego pakietu
+ * @param coverage kodowanie pakietu w %
+ * @param counter liczba odebranych pakietów
+ * @param state zmienna kontrolująca czy nadal nalezy odbirać pakiety
  */
-void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int kodowanie,unsigned int &licznik, int &stan);
+void odbieranieUDPLite(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, int coverage,unsigned int &counter, int &state);
 /**
  * @brief 
  * 
- * @param TX 
- * @param RX 
- * @param rozmiar_pakietu 
- * @param licznik 
- * @param stan 
+ * @param TX adres strony nadawczej
+ * @param RX adres strony odbiorczej
+ * @param packet_size rozmiar przesyłanego pakietu
+ * @param counter liczba odebranych pakietów
+ * @param state zmienna kontrolująca czy nadal nalezy odbirać pakiety
  */
-void odbieranieTCP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu,unsigned int &licznik, int &stan);
+void odbieranieTCP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size,unsigned int &counter, int &state);
 
 #endif 

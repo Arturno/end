@@ -73,7 +73,7 @@ void transmitter()
     cout<<"Sterowanie programem"<<endl;
     cout<<"M xxx - zmiana przepływności na wartość xxx Mb/s"<<endl;
     cout<<"E - zakonczenie pomiaru"<<endl;
-
+    ControlTX &rrr = ctr;
 
         thread UserCommunication(Control_TX, ref(ctr), RXSocket);
         thread Adapt(adaptation, ref(ctr), parameters.PID_time);
@@ -84,19 +84,19 @@ void transmitter()
         case 0:
         {
             //thread wysylanie(wysylanieUDP, TX, RX, ref(parametry.rozmiar_pakietu), ref(ster.opoznienie), ref(ster.grupa_pakietow), ref(ster.licznik), ref(ster.stan));
-            send_UDP(TX_meas, RX_meas, ctr.packet_size, ctr.delay, ctr.packet_group, ctr.counter, ctr.state);
+            send_UDP(TX_meas, RX_meas, rrr);
             break;
         }
         case 1:
         {
             //thread wysylanie(wysylanieUDPLite, TX, RX, ref(parametry.rozmiar_pakietu), ref(ster.opoznienie), ref(ster.grupa_pakietow),parametry.kodowanie, ref(ster.licznik), ref(ster.stan));
-            send_UDPLite(TX_meas, RX_meas, ctr.packet_size, ctr.delay, ctr.packet_group, parameters.coverage, ctr.counter, ctr.state);
+            send_UDPLite(TX_meas, RX_meas, parameters.coverage, ctr);
             break;
         }
         case 2:
         {
             //thread wysylanie(wysylanieTCP, TX, RX, ref(parametry.rozmiar_pakietu), ref(ster.opoznienie), ref(ster.grupa_pakietow), ref(ster.licznik), ref(ster.stan));
-            send_TCP(TX_meas, RX_meas, ctr.packet_size, ctr.delay, ctr.packet_group, ctr.counter, ctr.state);
+            send_TCP(TX_meas, RX_meas, ctr);
             break;
         }
         }

@@ -2,12 +2,7 @@
 #define AD
 /**
  * @file adaptation.hpp
- * @author your name (you@domain.com)
- * @brief PRogram do adaptacji
- * @version 0.1
- * @date 2019-05-09
- * 
- * @copyright Copyright (c) 2019
+ * @brief Plik przechowujący funkcję odpowiadającą za dostosowanie czasu opóźnienia wysyłanych pakietów
  * 
  */
 #include <iostream>
@@ -18,9 +13,9 @@
 /**
  * @brief 
  * 
- * @param ctr 
- * @param PID_time 
+ * @param ctr obiekt informujący o stanie programu
+ * @param PID_time częstotliwość wyznaczania korekty określona przez uzytkownika
  */
 void adaptation(ControlTX &ctr, int PID_time);
 
-#endif AD
+#endif

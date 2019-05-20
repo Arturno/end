@@ -20,8 +20,8 @@ using namespace std;
 
 class TransmissionArrangement
 /**
- *  \brief Klasa służąca do ustanowienia poczatkowych parametrow transmisji.
- *  \details Wykorzystywana zarówno po stronie odbiorczej i nadawczej.
+ *  @brief Klasa służąca do ustanowienia poczatkowych parametrow transmisji.
+ *  @details Wykorzystywana zarówno po stronie odbiorczej i nadawczej.
  *           trona odbiorcza przesyła stronie nadawczej wymagania co do parametrów transmisji.
  */
 {
@@ -41,7 +41,7 @@ class TransmissionArrangement
      */
     TransmissionArrangement();
     /**
-     * @bief Konstruktor klasy po stronie nadawczej.
+     * @brief Konstruktor klasy po stronie nadawczej.
      * @details Przyjmuje dane od srtony odbiorczej, odpowiednio je dzieli i tworzy identyczny obiekt po stronie nadawczej.
      * @param tablica[] ciąg danych przesłany od strony nadawczej
      */

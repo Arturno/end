@@ -2,19 +2,14 @@
 #define TX
 /**
  * @file transmitter.hpp
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2019-05-09
- * 
- * @copyright Copyright (c) 2019
+ * @brief Plik przechowujący stronę nadawczą programu 
  * 
  */
 #include <iostream>
 #include <cstdio>
-#include <stdlib.h>    // exit()
-#include <string.h>    // memset()
-#include <arpa/inet.h> // inet_pton()
+#include <stdlib.h>    
+#include <string.h>    
+#include <arpa/inet.h> 
 #include <sys/socket.h>
 #include <thread>
 #include "../../TransmissionArrangement.hpp"
@@ -23,7 +18,7 @@
 #include "ControlTX.hpp"
 
 /**
- * @brief 
+ * @brief Funkcja realizująca część nadawczą programu
  * 
  */
 void transmitter();

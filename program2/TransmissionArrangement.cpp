@@ -1,7 +1,6 @@
 #include "TransmissionArrangement.hpp"
 
 int getNumber(int min, int max)
-///pobieranie liczby od użytkownika
 {
     int temp;
     string cl;
@@ -27,7 +26,6 @@ int getNumber(int min, int max)
 }
 
 TransmissionArrangement::TransmissionArrangement()
-///konstruktor po stronie nadawczej
 {
     cout << "Podaj nazwę testu:" << endl;
     cin >> name;
@@ -54,7 +52,6 @@ TransmissionArrangement::TransmissionArrangement()
     date = time(NULL);
 }
 TransmissionArrangement::TransmissionArrangement(char tablica[])
-///konstruktor po stronie odbiorczej
 {
     int shift = 0;
     char transfer[4];
@@ -78,7 +75,6 @@ TransmissionArrangement::TransmissionArrangement(char tablica[])
 }
 
 void TransmissionArrangement::tochar(char tablica[])
-///przeksztalcenie obiektu w ciag znakow
 {
     int shift = 0;
     char transfer[4];
@@ -100,10 +96,8 @@ void TransmissionArrangement::tochar(char tablica[])
     strncpy(&tablica[shift], transfer, sizeof(transfer));
 }
 
-//FUNKCJE DO WYPISYWANIA
 
 void TransmissionArrangement::getDate()
-///wypisanie daty w formacie yyyy-mm-dd hh:mm:ss
 {
     date = time(NULL);
     tm *temp;
@@ -123,7 +117,6 @@ void OgolneInfo::getAddress()
 }
 */
 void TransmissionArrangement::print()
-///wypisanie zawartości obiektu
 {
     cout << endl;
     cout << "#############################################################################" << endl;

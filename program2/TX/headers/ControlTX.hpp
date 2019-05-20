@@ -2,51 +2,51 @@
 #define CTX
 /**
  * @file ControlTX.hpp
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2019-05-09
- * 
- * @copyright Copyright (c) 2019
+ * @brief Plik przechowujący klasę ControlTX, kontrolującą stan programu po stronie nadawczej
  * 
  */
 #include <iostream>
 #include <string.h>
 #include <sys/socket.h>
 #include "../../TransmissionArrangement.hpp"
-
+/**
+ * @brief Klasa przechowująca stan programu i jego najważniejsze parametry.
+ *        Odpowiedzialna również za sterowanie programem oraz komunikacje z użytkownikiem
+ * 
+ */
 class ControlTX
 {
   public:
-    int state;
-    unsigned int counter;
-    int delay;
-    int to_send;
-    int packet_group;
-    int packet_size;
+    int state;                /**< Stan programu running/end*/
+    unsigned int counter;     /**< Licznik wysłanych pakietów*/
+    int delay;                /**< Opóźnienie pomiędzy wysyłaniem kolejnych paczek pakietów*/
+    int to_send;              /**< Liczba pakietów, które powinny zostać wysłane w ciągu jednej sekundy aby uzyskać przepływność zadaną przez użytkownika*/
+    int packet_group;         /**< Liczba pakietów w jednej grupie*/
+    int packet_size;          /**< Rozmiar jednego pakietu*/
+    
+
     /**
-     * @brief Construct a new Control object
-     * 
+     * @brief Konstruktor obiektu klasy ControlTX
+     * @param bitrate Zadana przez użytkownika przepływność
+     * @param packet_size Zadany przez użytkownika rozmiar jednego pakietu
      */
-    ControlTX(int, int);
+    ControlTX(int bitrate, int packet_size);
     /**
-     * @brief 
-     * 
-     * @param bitrate 
+     * @brief Metoda umożliwiająca zmianę zadanej przepływności podczas trwania programu
+     * @param bitrate Nowa przepływność
      */
     void change_bitrate(int bitrate);
     /**
-     * @brief 
+     * @brief Metoda koncząca działanie programu
      * 
      */
     void end_program();
 };
 /**
- * @brief 
- * 
- * @param state 
- * @param ctr 
- * @param socket_ 
+ * @brief Funkcja umożliwiająca komunikację z użytkownikiem i stroną odbiorczą
+ * @details Przechowuje ona obiekt klasy ControlTX, który odpowiada za modyfikowalne, podczas testu, parametry programu
+ * @param ctr Obiekt klasy ControlTX
+ * @param socket_ Gniazdo do komunikacji ze stroną odbiorczą
  */
 void Control_TX(class ControlTX &ctr, int socket_);
 

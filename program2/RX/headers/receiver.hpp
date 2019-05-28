@@ -2,9 +2,8 @@
 #define RX
 /**
  * @file receiver.hpp
- * @brief Plik przechowujący część programu po stronie odbiorczej
+ * @brief Plik zawierający część programu po stronie odbiorczej receiver()
  */
-#include <iostream>
 #include <cstdio>
 #include <stdlib.h>    // exit()
 #include <string.h>    // memset()
@@ -18,7 +17,7 @@
 #include "position.hpp"
 
 /**
- * @brief Strona Odbiorcza programu
+ * @brief Strona odbiorcza programu
  * @details fukcja realizująca część odbiorczą programu 
  *          odpowiada za komunikację z użytkownikiem, odbiór, pomiar i zapis danych do pliku
  * 

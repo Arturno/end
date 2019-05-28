@@ -2,15 +2,14 @@
 #define TX
 /**
  * @file transmitter.hpp
- * @brief Plik przechowujący stronę nadawczą programu 
+ * @brief Plik zawierający stronę nadawczą programu transmitter()
  * 
  */
-#include <iostream>
-#include <cstdio>
-#include <stdlib.h>    
-#include <string.h>    
-#include <arpa/inet.h> 
-#include <sys/socket.h>
+//#include <cstdio>
+//#include <stdlib.h>    
+//#include <string.h>    
+//#include <arpa/inet.h> 
+//#include <sys/socket.h>
 #include <thread>
 #include "../../TransmissionArrangement.hpp"
 #include "sendingPackets.hpp"
@@ -18,7 +17,7 @@
 #include "ControlTX.hpp"
 
 /**
- * @brief Funkcja realizująca część nadawczą programu
+ * @brief Strona nadawcza programu
  * 
  */
 void transmitter();

@@ -2,7 +2,7 @@
 #define RCV
 /**
  * @file receiving.hpp
- * @brief Plik z fukcjami do odbioru pakietów przesłanych za pomocą różnych protokołów
+ * @brief Plik zawierający fukcje do odbioru pakietów przesłanych za pomocą różnych protokołów
  * 
  */
 #include <iostream>

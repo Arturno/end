@@ -4,11 +4,11 @@
 #include "ControlRX.hpp"
 /**
  * @file position.hpp
- * @brief Plik przechowujący fukncje wykorzystywane do odbioru danych z enkodera
+ * @brief Plik zawierający fukncje wykorzystywane do odbioru danych z enkodera
  */
 
 /**
- * @brief funkcja cyklicznie pobierajaca dane
+ * @brief funkcja cyklicznie pobierajaca dane od enkodera
  * 
  * @param position pozycja odebrana od enkodera
  * @param end zmienna stanu programu informujaca czy należy dalej odbierać dane

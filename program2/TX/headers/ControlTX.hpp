@@ -2,7 +2,7 @@
 #define CTX
 /**
  * @file ControlTX.hpp
- * @brief Plik przechowujący klasę ControlTX, kontrolującą stan programu po stronie nadawczej
+ * @brief Plik zawierający klasę ControlTX, kontrolującą stan programu po stronie nadawczej
  * 
  */
 #include <iostream>
@@ -27,13 +27,13 @@ class ControlTX
 
     /**
      * @brief Konstruktor obiektu klasy ControlTX
-     * @param bitrate Zadana przez użytkownika przepływność
-     * @param packet_size Zadany przez użytkownika rozmiar jednego pakietu
+     * @param bitrate zadana przez użytkownika przepływność
+     * @param packet_size zadany przez użytkownika rozmiar jednego pakietu
      */
     ControlTX(int bitrate, int packet_size);
     /**
      * @brief Metoda umożliwiająca zmianę zadanej przepływności podczas trwania programu
-     * @param bitrate Nowa przepływność
+     * @param bitrate nowa przepływność
      */
     void change_bitrate(int bitrate);
     /**

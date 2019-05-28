@@ -2,12 +2,7 @@
 #define SAV
 /**
  * @file savetofile.hpp
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2019-05-09
- * 
- * @copyright Copyright (c) 2019
+ * @brief Plik zawierający funkcje odpowiadające za zapis wyników testu do pliku
  * 
  */
 #include <iostream>
@@ -19,26 +14,27 @@
 #include "ControlRX.hpp"
 using namespace std;
 /**
- * @brief 
+ * @brief funkcja generująca nazwę pliku
+ * @details nazwa pliku składa się z nazwy podanej przez użytkownika oraz daty rozpoczęcia testu
+ *          wszystkie pliki zawierające wyniki testu są zapisywane w oddzielnym katalogu o nazwie results
  * 
- * @param parameters 
- * @return string 
+ * @param parameters obiekt klast TransmissionArrangement na podstawie, którego generowana jest nazwa pliku z wynikami
+ * @return string nazwa pliku
  */
 string cr_filename(class TransmissionArrangement parameters);
 /**
- * @brief 
+ * @brief funkcja pobierająca odbieraną moc sygnału i wyznaczoną przez system jakość linku 
  * 
- * @return string 
+ * @return string wartości pobrane z plików systemowych
  */
 string signal_level();
 /**
- * @brief 
- * 
- * @param parameters 
- * @param position 
- * @param counter 
- * @param state 
- * @param chk 
+ * @brief funkcja realizująca zapis wyników pomiarów do pliku 
+ * @details funkcja tworzy obiekt klasy Measure z aktualnymi wartościami zczytanymi z odpowiednich częsci programu
+ *          następnie otwiera plik i dopisuje do niego linijkę z wynikami za ostatnią sekundę
+ * @param parameters parametry podane przez użytkownika
+ * @param ctr stan programu oraz wartości liczników - odebranych pakietów i położenia
+ * @param chk liczba błędnie odebranych bitów 
  */
 void meas_and_save(class TransmissionArrangement &parameters, class ControlRX &ctr, class CheckPackets &chk);
 

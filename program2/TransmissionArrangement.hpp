@@ -2,7 +2,7 @@
 #define TA_HH
 /**
  * @file TransmissionArrangement.hpp
- * @brief Plik zawierający klasę TransmissionArangement oraz fukcje przez nią uzywane
+ * @brief Plik zawierający klasę TransmissionArrangement oraz fukcje przez nią uzywane
  * 
  */
 #include <sys/types.h>
@@ -22,7 +22,7 @@ class TransmissionArrangement
 /**
  *  @brief Klasa służąca do ustanowienia poczatkowych parametrow transmisji.
  *  @details Wykorzystywana zarówno po stronie odbiorczej i nadawczej.
- *           trona odbiorcza przesyła stronie nadawczej wymagania co do parametrów transmisji.
+ *           strona odbiorcza przesyła stronie nadawczej wymagania co do parametrów transmisji.
  */
 {
   public:

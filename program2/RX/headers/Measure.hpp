@@ -1,6 +1,6 @@
 /**
- * @file measure.hpp
- * @brief Plik przechowujący definicję klasy Measure oraz funkcje przez nią wykorzystywane.
+ * @file Measure.hpp
+ * @brief Plik zawierający definicję klasy Measure oraz funkcje przez nią wykorzystywane.
  */
 #include <iostream>
 #include <cstdio>
@@ -10,8 +10,12 @@
 #include "Check.hpp"
 using namespace std;
 /**
- * @brief measure
- * 
+ * @brief Klasa zbierająca wszystkie wyniki testu
+ * @details Obiekt tej klasy zbiera informacje z:
+ *          plików systemowych - poziom sygnału i jakość linku
+ *          enkodera - położenie strony odbiorczej
+ *          funkcji odpowiedzialnej za odbiór pakietów - uzyskana przepływność
+ *          funkcji odpowiedzialnej za sprawdzanie przychodzących pakietów - błędnie odebrane bity
  */
 class Measure
 {

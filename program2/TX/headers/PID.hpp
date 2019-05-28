@@ -1,6 +1,6 @@
 /**
  * @file PID.hpp
- * @brief Plik przechowujący klasę realizującą regulację PID
+ * @brief Plik zawierający klasę realizującą regulację PID
  * 
  */
 #ifndef PID_H

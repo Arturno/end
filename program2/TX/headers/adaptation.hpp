@@ -2,7 +2,7 @@
 #define AD
 /**
  * @file adaptation.hpp
- * @brief Plik przechowujący funkcję odpowiadającą za dostosowanie czasu opóźnienia wysyłanych pakietów
+ * @brief Plik zawierający funkcję odpowiadającą za dostosowanie czasu opóźnienia wysyłanych pakietów
  * 
  */
 #include <iostream>

@@ -4,12 +4,7 @@
 #define error_message printf
 /**
  * @file serial.hpp
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2019-05-09
- * 
- * @copyright Copyright (c) 2019
+ * @brief Plik zawierający funckje wykorzystywane do połączenia z kontrolerem enkodera za pomocą portu szeregowego
  * 
  */
 #include <stdio.h>
@@ -19,19 +14,19 @@
 #include <termios.h>
 #include <unistd.h>
 /**
- * @brief Set the interface attribs object
+ * @brief funkcja ustawiająca parametry połączenia z kontrolerem
  * 
- * @param fd 
- * @param speed 
- * @param parity 
+ * @param fd adres portu
+ * @param speed prędkość  
+ * @param parity protokół sprawdzania parzystości
  * @return int 
  */
 int set_interface_attribs (int fd, int speed, int parity);
 /**
- * @brief Set the blocking object
+ * @brief funkcja wyłączająca blokowanie portu
  * 
- * @param fd 
- * @param should_block 
+ * @param fd adres portu
+ * @param should_block informacja o blokowaniu
  */
 void set_blocking (int fd, int should_block);
 

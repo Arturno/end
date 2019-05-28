@@ -1,8 +1,14 @@
+/**
+ * @file main.hpp
+ * @brief Plik zawierający głowną funckję programu
+ * @details pobiera od użytkownika informację o trybie uruchomienia programu ( transmitter() / receiver() )
+ * 
+ */
 #ifndef MAIN_
 #define MAIN_
 /**
- *  \brief Główna fukcja programu
- *  \details Pobiera od użytkownika informację w jakim trybie uruchomić program odbiorczym/nadawczym
+ *  @brief Główna fukcja programu
+ *  @details Pobiera od użytkownika informację w jakim trybie uruchomić program odbiorczym/nadawczym
  *             
  */
 

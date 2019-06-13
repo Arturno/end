@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Dokumentacja pliku TX/headers/sendingPackets.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_fb1e333d3fa5942fd36ac9ea341267cf.html">TX</a></li><li class="navelem"><a class="el" href="dir_f3ad48e0811d67af777a85dad82bae76.html">headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definicje</a> &#124;
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku sendingPackets.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Plik zawierający funkcje realizujące wysyłanie pakietów.  
+<a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;cstdio&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;arpa/inet.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;sys/socket.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;netinet/in.h&gt;</code><br />
+<code>#include &lt;limits.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="ControlTX_8hpp_source.html">ControlTX.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Wykres zależności załączania dla sendingPackets.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="sendingPackets_8hpp__incl.png" border="0" usemap="#TX_2headers_2sendingPackets_8hpp" alt=""/></div>
+<map name="TX_2headers_2sendingPackets_8hpp" id="TX_2headers_2sendingPackets_8hpp">
+<area shape="rect" id="node12" href="ControlTX_8hpp.html" title="Plik zawierający klasę ControlTX, kontrolującą stan programu po stronie nadawczej. " alt="" coords="523,80,629,107"/>
+<area shape="rect" id="node13" href="TransmissionArrangement_8hpp.html" title="Plik zawierający klasę TransmissionArrangement oraz fukcje przez nią uzywane. " alt="" coords="391,155,614,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik:</div>
+<div class="dyncontent">
+<div class="center"><img src="sendingPackets_8hpp__dep__incl.png" border="0" usemap="#TX_2headers_2sendingPackets_8hppdep" alt=""/></div>
+<map name="TX_2headers_2sendingPackets_8hppdep" id="TX_2headers_2sendingPackets_8hppdep">
+<area shape="rect" id="node2" href="transmitter_8hpp.html" title="Plik zawierający stronę nadawczą programu transmitter() " alt="" coords="21,80,201,107"/>
+<area shape="rect" id="node3" href="main_8hpp.html" title="Plik zawierający głowną funckję programu. " alt="" coords="73,155,148,181"/>
+</map>
+</div>
+</div>
+<p><a href="sendingPackets_8hpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definicje</h2></td></tr>
+<tr class="memitem:a0144ec0336c7e748dc92bd3a0f07e792"><td class="memItemLeft" align="right" valign="top"><a id="a0144ec0336c7e748dc92bd3a0f07e792"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SEND_</b></td></tr>
+<tr class="separator:a0144ec0336c7e748dc92bd3a0f07e792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22e4507a7db1b3d8de97f707a2afac8e"><td class="memItemLeft" align="right" valign="top"><a id="a22e4507a7db1b3d8de97f707a2afac8e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SOL_UDPLITE</b>&#160;&#160;&#160;136</td></tr>
+<tr class="separator:a22e4507a7db1b3d8de97f707a2afac8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b2e3aea5b22026c1f4322cc2d78743d"><td class="memItemLeft" align="right" valign="top"><a id="a1b2e3aea5b22026c1f4322cc2d78743d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDPLITE_SEND_CSCOV</b>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a1b2e3aea5b22026c1f4322cc2d78743d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:a21498dc6c91f9317ddcc0cdb41ee6566"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sendingPackets_8hpp.html#a21498dc6c91f9317ddcc0cdb41ee6566">send_UDP</a> (struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, <a class="el" href="classControlTX.html">ControlTX</a> &amp;ctr)</td></tr>
+<tr class="memdesc:a21498dc6c91f9317ddcc0cdb41ee6566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja wysyłająca pakiety z użyciem protokołu UDP.  <a href="#a21498dc6c91f9317ddcc0cdb41ee6566">Więcej...</a><br /></td></tr>
+<tr class="separator:a21498dc6c91f9317ddcc0cdb41ee6566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3799f1306dfaceb4af278fec880179"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sendingPackets_8hpp.html#aba3799f1306dfaceb4af278fec880179">send_UDPLite</a> (struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int coverage, <a class="el" href="classControlTX.html">ControlTX</a> &amp;ctr)</td></tr>
+<tr class="separator:aba3799f1306dfaceb4af278fec880179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35aaecb47f09a2e78fdb914607d60793"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sendingPackets_8hpp.html#a35aaecb47f09a2e78fdb914607d60793">send_TCP</a> (struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, <a class="el" href="classControlTX.html">ControlTX</a> &amp;ctr)</td></tr>
+<tr class="separator:a35aaecb47f09a2e78fdb914607d60793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Plik zawierający funkcje realizujące wysyłanie pakietów. </p>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="a35aaecb47f09a2e78fdb914607d60793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35aaecb47f09a2e78fdb914607d60793">&#9670;&nbsp;</a></span>send_TCP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_TCP </td>
+          <td>(</td>
+          <td class="paramtype">struct sockaddr_in&#160;</td>
+          <td class="paramname"><em>TX_meas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct sockaddr_in&#160;</td>
+          <td class="paramname"><em>RX_meas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classControlTX.html">ControlTX</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TX_meas</td><td>Struktura zawierająca dane o adresach strony nadawczej </td></tr>
+    <tr><td class="paramname">RX_meas</td><td>Struktura zawierająca dane o adresach strony odbiorczej </td></tr>
+    <tr><td class="paramname">ctr</td><td>obiekt klasy <a class="el" href="classControlTX.html" title="Klasa przechowująca stan programu i jego najważniejsze parametry. Odpowiedzialna również za sterowani...">ControlTX</a> przechowujący stan programu i aktualne parametry </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a21498dc6c91f9317ddcc0cdb41ee6566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21498dc6c91f9317ddcc0cdb41ee6566">&#9670;&nbsp;</a></span>send_UDP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_UDP </td>
+          <td>(</td>
+          <td class="paramtype">struct sockaddr_in&#160;</td>
+          <td class="paramname"><em>TX_meas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct sockaddr_in&#160;</td>
+          <td class="paramname"><em>RX_meas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classControlTX.html">ControlTX</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja wysyłająca pakiety z użyciem protokołu UDP. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TX_meas</td><td>Struktura zawierająca dane o adresach strony nadawczej </td></tr>
+    <tr><td class="paramname">RX_meas</td><td>Struktura zawierająca dane o adresach strony odbiorczej </td></tr>
+    <tr><td class="paramname">ctr</td><td>obiekt klasy <a class="el" href="classControlTX.html" title="Klasa przechowująca stan programu i jego najważniejsze parametry. Odpowiedzialna również za sterowani...">ControlTX</a> przechowujący stan programu i aktualne parametry </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aba3799f1306dfaceb4af278fec880179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3799f1306dfaceb4af278fec880179">&#9670;&nbsp;</a></span>send_UDPLite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_UDPLite </td>
+          <td>(</td>
+          <td class="paramtype">struct sockaddr_in&#160;</td>
+          <td class="paramname"><em>TX_meas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct sockaddr_in&#160;</td>
+          <td class="paramname"><em>RX_meas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coverage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classControlTX.html">ControlTX</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TX_meas</td><td>Struktura zawierająca dane o adresach strony nadawczej </td></tr>
+    <tr><td class="paramname">RX_meas</td><td>Struktura zawierająca dane o adresach strony odbiorczej </td></tr>
+    <tr><td class="paramname">coverage</td><td>Kodowanie wysyłanych pakietów w % </td></tr>
+    <tr><td class="paramname">ctr</td><td>obiekt klasy <a class="el" href="classControlTX.html" title="Klasa przechowująca stan programu i jego najważniejsze parametry. Odpowiedzialna również za sterowani...">ControlTX</a> przechowujący stan programu i aktualne parametry </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

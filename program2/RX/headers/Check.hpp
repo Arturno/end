@@ -29,7 +29,8 @@ class CheckPackets
     int check;                          /**< miejsce w tablicy w którym jest ostatni sprawdzony pakiet*/
 
     int packet_size;                    /**< rozmiar pakietów */
-
+    int protocol;
+    unsigned int packet_number;
     int added;                          /**< liczba dodanych pakietów */
     int checked;                        /**< liczba sprawdzonych palietów*/
     int bit_errors;                     /**< liczva błędnie odebranych bitów*/
@@ -38,36 +39,42 @@ class CheckPackets
     bool err;                           /**< flaga informujaca o poważniejszym problemie podczas transmisji, np.: utrata wielu pakietów*/
 
     double errors;                      /**< % błędnie odebranych bitów */
-    //int nrpakietu;
 
     /**
      * @brief Konstruktor klasy
      * @details Ustawia odpowiednie flagi, nie pobiera informacji od użytkownika
      */
-    CheckPackets();
+    CheckPackets(int packetsize, int protocol);
     /**
      * @brief metoda służąca do wyznaczenia miejsca w tablicy w którym powinien zostać dodany pakiet
-     * 
+     * @param packetsize rozmiar pojedynczego pakietu
      * @return char* zwraca wskaźnik do miejsca w tablicy w którym powinien zostać umieszczony następny przychodzący pakiet
      */
     char *add();
     /**
-     * @brief 
+     * @brief metoda służąca do wyznaczania kolejności sprawdzanych pakietów
      * 
-     * @return int 
+     * @return int miejsce w tablicy, w którym znajduje się pakiet, który należy sprawdzic
      */
-    int spraw();
+    int toCheck();
     /**
-     * @brief wyznaczenie % błędnie odebranych bitów
+     * @brief metoda służąca do obliczenia i zwrócenia wartości błędnie odebranych bitów w stosunku do wszystkich odebranych
      * 
      * @return double wartość % błędnie odebranych bitów do wszystkich odebranych
      */
-    double pomiar();
+    double getResults();
     /**
      * @brief 
      * 
+     * @param packet_number 
+     * @param received_packet 
      */
-    void test();
+    void checkOrder(unsigned int received_packet);
+    /**
+     * @brief głowna metoda, realizująca sprawdzanie kolejności przychodzenia pakietów oraz porównująca odebrane pakiet do wzorca
+     * 
+     */
+    void calculate();
 };
 /**
  * @brief funkcja kontrolująca cały mechanizm sprawdzania

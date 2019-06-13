@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string.h>
 #include <sys/socket.h>
+#include "../../TransmissionArrangement.hpp"
 using namespace std;
 /**
  * @brief Klasa przechowująca stan programu i jego najważniejsze parametry.
@@ -21,7 +22,9 @@ class ControlRX
     unsigned int counter;       /**<licznik odebranych pakietów*/
     int packet_group;           /**<liczba pakietów w grupie*/
     int packet_size;            /**<rozmiar pojedynczego pakietu*/
-    int position;               /**<położenie strony odbiorczej*/
+    int bitrate;
+    int start_position;
+    double position;            /**<położenie strony odbiorczej*/
 
     /**
      * @brief Konstruktor obiektu klasy ControlRX
@@ -45,6 +48,6 @@ class ControlRX
  * @param ctr Obiekt klasy ControlRX 
  * @param socket_ Gniazdo do komunikacji ze stroną odbiorczą
  */
-void Control_RX(ControlRX &ctr,int &bitrate, int socket_);
+void Control_RX(ControlRX &ctr, int socket_);
 
 #endif

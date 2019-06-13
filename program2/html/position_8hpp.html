@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Dokumentacja pliku RX/headers/position.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_066579c6df6e8da68daeae87869b3d72.html">RX</a></li><li class="navelem"><a class="el" href="dir_1b596a20b76c02a07984afe23b25252e.html">headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Struktury danych</a> &#124;
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku position.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Plik zawierający fukncje wykorzystywane do odbioru danych z enkodera.  
+<a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="serial_8hpp_source.html">serial.hpp</a>&quot;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;<a class="el" href="ControlRX_8hpp_source.html">ControlRX.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Wykres zależności załączania dla position.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="position_8hpp__incl.png" border="0" usemap="#RX_2headers_2position_8hpp" alt=""/></div>
+<map name="RX_2headers_2position_8hpp" id="RX_2headers_2position_8hpp">
+<area shape="rect" id="node2" href="serial_8hpp.html" title="Plik zawierający funckje wykorzystywane do połączenia z kontrolerem enkodera za pomocą portu szeregow..." alt="" coords="276,80,355,107"/>
+<area shape="rect" id="node11" href="ControlRX_8hpp.html" title="Plik zawierający klasę ControlRX, kontrolującą stan programu po stronie odbiorczej. " alt="" coords="539,80,647,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik:</div>
+<div class="dyncontent">
+<div class="center"><img src="position_8hpp__dep__incl.png" border="0" usemap="#RX_2headers_2position_8hppdep" alt=""/></div>
+<map name="RX_2headers_2position_8hppdep" id="RX_2headers_2position_8hppdep">
+<area shape="rect" id="node2" href="receiver_8hpp.html" title="Plik zawierający część programu po stronie odbiorczej receiver() " alt="" coords="5,80,172,107"/>
+<area shape="rect" id="node3" href="main_8hpp.html" title="Plik zawierający głowną funckję programu. " alt="" coords="51,155,126,181"/>
+</map>
+</div>
+</div>
+<p><a href="position_8hpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Struktury danych</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structposition__t.html">position_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">stuktura przechowująca wartość zwracaną od enkodera  <a href="structposition__t.html#details">Więcej...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:a7bdd7f42e51d64e3b53e7af54d17c384"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="position_8hpp.html#a7bdd7f42e51d64e3b53e7af54d17c384">position</a> (int &amp;position, int &amp;end)</td></tr>
+<tr class="memdesc:a7bdd7f42e51d64e3b53e7af54d17c384"><td class="mdescLeft">&#160;</td><td class="mdescRight">funkcja cyklicznie pobierajaca dane od enkodera  <a href="#a7bdd7f42e51d64e3b53e7af54d17c384">Więcej...</a><br /></td></tr>
+<tr class="separator:a7bdd7f42e51d64e3b53e7af54d17c384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b46b54d2e5b37f57633677124d96292"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="position_8hpp.html#a9b46b54d2e5b37f57633677124d96292">check</a> (int a, int b, bool parsed)</td></tr>
+<tr class="memdesc:a9b46b54d2e5b37f57633677124d96292"><td class="mdescLeft">&#160;</td><td class="mdescRight">funkcja sprawdzająca czy dane które zostały odebrane od enkodera są poprawne  <a href="#a9b46b54d2e5b37f57633677124d96292">Więcej...</a><br /></td></tr>
+<tr class="separator:a9b46b54d2e5b37f57633677124d96292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a706b2725145a1c7f120a0b9aa01e6b99"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="position_8hpp.html#a706b2725145a1c7f120a0b9aa01e6b99">getPosition</a> (int fenc)</td></tr>
+<tr class="memdesc:a706b2725145a1c7f120a0b9aa01e6b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">funkcja pobierająca i parsująca dane od enkodera  <a href="#a706b2725145a1c7f120a0b9aa01e6b99">Więcej...</a><br /></td></tr>
+<tr class="separator:a706b2725145a1c7f120a0b9aa01e6b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Plik zawierający fukncje wykorzystywane do odbioru danych z enkodera. </p>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="a9b46b54d2e5b37f57633677124d96292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b46b54d2e5b37f57633677124d96292">&#9670;&nbsp;</a></span>check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool check </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>parsed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>funkcja sprawdzająca czy dane które zostały odebrane od enkodera są poprawne </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>pozycja odebrana od enkodera </td></tr>
+    <tr><td class="paramname">b</td><td>suma kontrolna </td></tr>
+    <tr><td class="paramname">parsed</td><td>zmienna przechowujaca informacje czy dane zostaly poprawnie sparsowane </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>true podana wartość może zostać uznana za poprawną </dd>
+<dd>
+false podana wartość jest niepoprawna i zostanie odrzucona </dd></dl>
+
+</div>
+</div>
+<a id="a706b2725145a1c7f120a0b9aa01e6b99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a706b2725145a1c7f120a0b9aa01e6b99">&#9670;&nbsp;</a></span>getPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getPosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fenc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>funkcja pobierająca i parsująca dane od enkodera </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fenc</td><td>adres enkodera </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>int aktualna wartosc pozycji </dd></dl>
+
+</div>
+</div>
+<a id="a7bdd7f42e51d64e3b53e7af54d17c384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bdd7f42e51d64e3b53e7af54d17c384">&#9670;&nbsp;</a></span>position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void position </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>funkcja cyklicznie pobierajaca dane od enkodera </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>pozycja odebrana od enkodera </td></tr>
+    <tr><td class="paramname">end</td><td>zmienna stanu programu informujaca czy należy dalej odbierać dane </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

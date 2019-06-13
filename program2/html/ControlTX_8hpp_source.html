@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Plik źródłowy TX/headers/ControlTX.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_fb1e333d3fa5942fd36ac9ea341267cf.html">TX</a></li><li class="navelem"><a class="el" href="dir_f3ad48e0811d67af777a85dad82bae76.html">headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ControlTX.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="ControlTX_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CTX</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CTX</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;sys/socket.h&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../TransmissionArrangement.hpp&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classControlTX.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classControlTX.html">ControlTX</a></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">public</span>:</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classControlTX.html#a7826e1c24244cfe19a45b1ebcf6efd63">   20</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classControlTX.html#a7826e1c24244cfe19a45b1ebcf6efd63">state</a>;                </div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classControlTX.html#acf8facb8928ea9bfd4c92f1fa8d4e603">   21</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classControlTX.html#acf8facb8928ea9bfd4c92f1fa8d4e603">counter</a>;     </div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classControlTX.html#a24dcaa68f940565858f5d44a99ef5ab6">   22</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classControlTX.html#a24dcaa68f940565858f5d44a99ef5ab6">delay</a>;                </div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classControlTX.html#a9c3ed06416765865a56229a342c42d96">   23</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classControlTX.html#a9c3ed06416765865a56229a342c42d96">to_send</a>;              </div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classControlTX.html#a1a4045edfd5d5eefc53e9e4320b31f7c">   24</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classControlTX.html#a1a4045edfd5d5eefc53e9e4320b31f7c">packet_group</a>;         </div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classControlTX.html#a44240bb7c30df70b16f971eafee07a75">   25</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classControlTX.html#a44240bb7c30df70b16f971eafee07a75">packet_size</a>;          </div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classControlTX.html#a8b1c09c8ee460aa5a9e1fb70a00b45b7">ControlTX</a>(<span class="keywordtype">int</span> bitrate, <span class="keywordtype">int</span> packet_size);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlTX.html#a20c61a001175d04e24e74cb80c9123ae">change_bitrate</a>(<span class="keywordtype">int</span> bitrate);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classControlTX.html#a3c780fa7e6d790a09abe5088979cb9b7">end_program</a>();</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ControlTX_8hpp.html#ac4d0b637a7ad3b1c69bef0912884ac3c">Control_TX</a>(<span class="keyword">class</span> <a class="code" href="classControlTX.html">ControlTX</a> &amp;ctr, <span class="keywordtype">int</span> socket_);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif </span></div><div class="ttc" id="ControlTX_8hpp_html_ac4d0b637a7ad3b1c69bef0912884ac3c"><div class="ttname"><a href="ControlTX_8hpp.html#ac4d0b637a7ad3b1c69bef0912884ac3c">Control_TX</a></div><div class="ttdeci">void Control_TX(class ControlTX &amp;ctr, int socket_)</div><div class="ttdoc">Funkcja umożliwiająca komunikację z użytkownikiem i stroną odbiorczą </div><div class="ttdef"><b>Definition:</b> ControlTX.cpp:39</div></div>
+<div class="ttc" id="classControlTX_html_a3c780fa7e6d790a09abe5088979cb9b7"><div class="ttname"><a href="classControlTX.html#a3c780fa7e6d790a09abe5088979cb9b7">ControlTX::end_program</a></div><div class="ttdeci">void end_program()</div><div class="ttdoc">Metoda koncząca działanie programu. </div><div class="ttdef"><b>Definition:</b> ControlTX.cpp:35</div></div>
+<div class="ttc" id="classControlTX_html_a20c61a001175d04e24e74cb80c9123ae"><div class="ttname"><a href="classControlTX.html#a20c61a001175d04e24e74cb80c9123ae">ControlTX::change_bitrate</a></div><div class="ttdeci">void change_bitrate(int bitrate)</div><div class="ttdoc">Metoda umożliwiająca zmianę zadanej przepływności podczas trwania programu. </div><div class="ttdef"><b>Definition:</b> ControlTX.cpp:22</div></div>
+<div class="ttc" id="classControlTX_html_a9c3ed06416765865a56229a342c42d96"><div class="ttname"><a href="classControlTX.html#a9c3ed06416765865a56229a342c42d96">ControlTX::to_send</a></div><div class="ttdeci">int to_send</div><div class="ttdef"><b>Definition:</b> ControlTX.hpp:23</div></div>
+<div class="ttc" id="classControlTX_html_a7826e1c24244cfe19a45b1ebcf6efd63"><div class="ttname"><a href="classControlTX.html#a7826e1c24244cfe19a45b1ebcf6efd63">ControlTX::state</a></div><div class="ttdeci">int state</div><div class="ttdef"><b>Definition:</b> ControlTX.hpp:20</div></div>
+<div class="ttc" id="classControlTX_html_a44240bb7c30df70b16f971eafee07a75"><div class="ttname"><a href="classControlTX.html#a44240bb7c30df70b16f971eafee07a75">ControlTX::packet_size</a></div><div class="ttdeci">int packet_size</div><div class="ttdef"><b>Definition:</b> ControlTX.hpp:25</div></div>
+<div class="ttc" id="classControlTX_html_a1a4045edfd5d5eefc53e9e4320b31f7c"><div class="ttname"><a href="classControlTX.html#a1a4045edfd5d5eefc53e9e4320b31f7c">ControlTX::packet_group</a></div><div class="ttdeci">int packet_group</div><div class="ttdef"><b>Definition:</b> ControlTX.hpp:24</div></div>
+<div class="ttc" id="classControlTX_html_a8b1c09c8ee460aa5a9e1fb70a00b45b7"><div class="ttname"><a href="classControlTX.html#a8b1c09c8ee460aa5a9e1fb70a00b45b7">ControlTX::ControlTX</a></div><div class="ttdeci">ControlTX(int bitrate, int packet_size)</div><div class="ttdoc">Konstruktor obiektu klasy ControlTX. </div><div class="ttdef"><b>Definition:</b> ControlTX.cpp:5</div></div>
+<div class="ttc" id="classControlTX_html"><div class="ttname"><a href="classControlTX.html">ControlTX</a></div><div class="ttdoc">Klasa przechowująca stan programu i jego najważniejsze parametry. Odpowiedzialna również za sterowani...</div><div class="ttdef"><b>Definition:</b> ControlTX.hpp:17</div></div>
+<div class="ttc" id="classControlTX_html_a24dcaa68f940565858f5d44a99ef5ab6"><div class="ttname"><a href="classControlTX.html#a24dcaa68f940565858f5d44a99ef5ab6">ControlTX::delay</a></div><div class="ttdeci">int delay</div><div class="ttdef"><b>Definition:</b> ControlTX.hpp:22</div></div>
+<div class="ttc" id="classControlTX_html_acf8facb8928ea9bfd4c92f1fa8d4e603"><div class="ttname"><a href="classControlTX.html#acf8facb8928ea9bfd4c92f1fa8d4e603">ControlTX::counter</a></div><div class="ttdeci">unsigned int counter</div><div class="ttdef"><b>Definition:</b> ControlTX.hpp:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

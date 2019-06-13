@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Plik źródłowy TransmissionArrangement.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">TransmissionArrangement.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="TransmissionArrangement_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TA_HH</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TA_HH</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;sys/types.h&gt;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;sys/socket.h&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;arpa/inet.h&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classTransmissionArrangement.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTransmissionArrangement.html">TransmissionArrangement</a></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">public</span>:</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classTransmissionArrangement.html#aaaa8e010111bcd79195b20b21364adab">   29</a></span>&#160;    <span class="keywordtype">char</span> name[100];     </div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classTransmissionArrangement.html#a258f79f7ddc8fe009fbcd07560a5afb3">   30</a></span>&#160;    time_t <a class="code" href="classTransmissionArrangement.html#a258f79f7ddc8fe009fbcd07560a5afb3">date</a>;        </div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classTransmissionArrangement.html#a2e2e6f2e536e5c9ff5b4f84980396bbf">   32</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTransmissionArrangement.html#a2e2e6f2e536e5c9ff5b4f84980396bbf">packet_size</a>;    </div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classTransmissionArrangement.html#ac8531c6ff4a404b0520816f28a981c96">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTransmissionArrangement.html#ac8531c6ff4a404b0520816f28a981c96">protocol</a>;       </div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classTransmissionArrangement.html#a629c03c90fd898915412af85e3aa6696">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTransmissionArrangement.html#a629c03c90fd898915412af85e3aa6696">coverage</a>;       </div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classTransmissionArrangement.html#a367ab476c7a1d6327590986894d71a80">   35</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTransmissionArrangement.html#a367ab476c7a1d6327590986894d71a80">bitrate</a>;        </div><div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classTransmissionArrangement.html#a5b7ea6c7b070d0199f2e549e3a26859b">   36</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTransmissionArrangement.html#a5b7ea6c7b070d0199f2e549e3a26859b">PID_time</a>;       </div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classTransmissionArrangement.html">TransmissionArrangement</a>();</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classTransmissionArrangement.html">TransmissionArrangement</a>(<span class="keywordtype">char</span>[]);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> print();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> getDate();</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> tochar(<span class="keywordtype">char</span>[]);</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">int</span> <a class="code" href="TransmissionArrangement_8hpp.html#ae42c2be19ce1556dae78acdd730c22a3">getNumber</a>(<span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classTransmissionArrangement_html_a629c03c90fd898915412af85e3aa6696"><div class="ttname"><a href="classTransmissionArrangement.html#a629c03c90fd898915412af85e3aa6696">TransmissionArrangement::coverage</a></div><div class="ttdeci">int coverage</div><div class="ttdef"><b>Definition:</b> TransmissionArrangement.hpp:34</div></div>
+<div class="ttc" id="classTransmissionArrangement_html"><div class="ttname"><a href="classTransmissionArrangement.html">TransmissionArrangement</a></div><div class="ttdoc">Klasa służąca do ustanowienia poczatkowych parametrow transmisji. </div><div class="ttdef"><b>Definition:</b> TransmissionArrangement.hpp:21</div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="classTransmissionArrangement_html_a258f79f7ddc8fe009fbcd07560a5afb3"><div class="ttname"><a href="classTransmissionArrangement.html#a258f79f7ddc8fe009fbcd07560a5afb3">TransmissionArrangement::date</a></div><div class="ttdeci">time_t date</div><div class="ttdef"><b>Definition:</b> TransmissionArrangement.hpp:30</div></div>
+<div class="ttc" id="classTransmissionArrangement_html_a2e2e6f2e536e5c9ff5b4f84980396bbf"><div class="ttname"><a href="classTransmissionArrangement.html#a2e2e6f2e536e5c9ff5b4f84980396bbf">TransmissionArrangement::packet_size</a></div><div class="ttdeci">int packet_size</div><div class="ttdef"><b>Definition:</b> TransmissionArrangement.hpp:32</div></div>
+<div class="ttc" id="classTransmissionArrangement_html_ac8531c6ff4a404b0520816f28a981c96"><div class="ttname"><a href="classTransmissionArrangement.html#ac8531c6ff4a404b0520816f28a981c96">TransmissionArrangement::protocol</a></div><div class="ttdeci">int protocol</div><div class="ttdef"><b>Definition:</b> TransmissionArrangement.hpp:33</div></div>
+<div class="ttc" id="TransmissionArrangement_8hpp_html_ae42c2be19ce1556dae78acdd730c22a3"><div class="ttname"><a href="TransmissionArrangement_8hpp.html#ae42c2be19ce1556dae78acdd730c22a3">getNumber</a></div><div class="ttdeci">int getNumber(int min, int max)</div><div class="ttdoc">Fukcja służąca do pobierania i sprawdzania liczby od użytkownika. </div><div class="ttdef"><b>Definition:</b> TransmissionArrangement.cpp:3</div></div>
+<div class="ttc" id="classTransmissionArrangement_html_a5b7ea6c7b070d0199f2e549e3a26859b"><div class="ttname"><a href="classTransmissionArrangement.html#a5b7ea6c7b070d0199f2e549e3a26859b">TransmissionArrangement::PID_time</a></div><div class="ttdeci">int PID_time</div><div class="ttdef"><b>Definition:</b> TransmissionArrangement.hpp:36</div></div>
+<div class="ttc" id="classTransmissionArrangement_html_a367ab476c7a1d6327590986894d71a80"><div class="ttname"><a href="classTransmissionArrangement.html#a367ab476c7a1d6327590986894d71a80">TransmissionArrangement::bitrate</a></div><div class="ttdeci">int bitrate</div><div class="ttdef"><b>Definition:</b> TransmissionArrangement.hpp:35</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

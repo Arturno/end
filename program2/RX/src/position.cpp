@@ -17,7 +17,7 @@ void position(ControlRX &ctr)
     {
     int temp = getPosition(fenc);
     if(temp!=0)
-    ctr.position=temp;
+    ctr.position=(double)temp*3.14*DIAMETER/SPIKES;
     //std::cout<<position<<std::endl;
     }
 }

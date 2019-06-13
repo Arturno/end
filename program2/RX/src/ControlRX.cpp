@@ -1,11 +1,14 @@
 #include "../headers/ControlRX.hpp"
 
-ControlRX::ControlRX(int bitrate, int new_packet_size)
+ControlRX::ControlRX(int _bitrate, int new_packet_size)
 {
     state = 1;
     counter = 0;
+    bitrate = _bitrate;
     packet_size = new_packet_size;
-    position = 0;
+    cout<<"Podaj pozycję nadajnika: "<<endl;
+    start_position = getNumber(0,1000);
+    position=0;
     if (((bitrate * 1000000) / (packet_size * 8) * 0.001) < 1)
     {
         packet_group = 1;
@@ -14,6 +17,10 @@ ControlRX::ControlRX(int bitrate, int new_packet_size)
     {
         packet_group = (bitrate * 1000000) / (packet_size * 8) * 0.001;
     }
+    cout<<"#############################################################################"<<endl;
+    cout<<"Sterowanie programem"<<endl;
+    cout<<"M xxx - zmiana przepływności na wartość xxx Mb/s"<<endl;
+    cout<<"E - zakonczenie pomiaru"<<endl;
 }
 
 void ControlRX::end_program()
@@ -21,26 +28,45 @@ void ControlRX::end_program()
     state = 0;
 }
 
-void Control_RX(ControlRX &ctr, int &bitrate, int socket_)
+void Control_RX(ControlRX &ctr, int socket_)
 {
-    char buffer[150] = {};
+    char change = {};
+    char buffer[150];
     while (ctr.state)
     {
-        if (recv(socket_, buffer, sizeof(buffer), 0) <= 0)
+        cin >> change;
+        switch (change)
         {
-            perror("recv() ERROR");
-            exit(5);
-        }
-        if(buffer[0] == 0)
-        {
+        case 'E':
             ctr.end_program();
-            cout<<"Koniec testu"<<endl;
+            buffer[0] = 0;
+            cout << "Koniec testu" << endl;
+            if (send(socket_, buffer, sizeof(buffer), 0) <= 0)
+            {
+                perror("send() ERROR");
+                exit(6);
+            }
             break;
-        }
-        else
+        case 'M':
+            ctr.bitrate = getNumber(1, 1000);
+            cout<<"#############################################################################"<<endl;
+            cout << "Zmieniono przepływoność na:" << ctr.bitrate << "Mb/s" << endl;
+            cout<<"#############################################################################"<<endl;
+            sprintf(buffer, "%d", ctr.bitrate);
+            if (send(socket_, buffer, sizeof(buffer), 0) <= 0)
+            {
+                perror("send() ERROR");
+                exit(6);
+            }
+            break;
+        default:
         {
-        bitrate = atoi(buffer);
-        cout<<"Zmieniono przelywnosc na: "<<bitrate<<endl;
+            cin.clear();
+            cin.sync();
+            string cl;
+            getline(cin, cl);
+            cout << "Błędna wartość" << endl;
+        }
         }
     }
 }

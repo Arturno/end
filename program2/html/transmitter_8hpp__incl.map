@@ -1,0 +1,7 @@
+<map id="TX/headers/transmitter.hpp" name="TX/headers/transmitter.hpp">
+<area shape="rect" id="node3" href="$TransmissionArrangement_8hpp.html" title="Plik zawierający klasę TransmissionArrangement oraz fukcje przez nią uzywane. " alt="" coords="297,229,519,256"/>
+<area shape="rect" id="node14" href="$sendingPackets_8hpp.html" title="Plik zawierający funkcje realizujące wysyłanie pakietów. " alt="" coords="486,80,626,107"/>
+<area shape="rect" id="node18" href="$ControlTX_8hpp.html" title="Plik zawierający klasę ControlTX, kontrolującą stan programu po stronie nadawczej. " alt="" coords="745,155,852,181"/>
+<area shape="rect" id="node19" href="$adaptation_8hpp.html" title="Plik zawierający funkcję odpowiadającą za dostosowanie czasu opóźnienia wysyłanych pakietów..." alt="" coords="801,80,908,107"/>
+<area shape="rect" id="node21" href="$PID_8hpp.html" title="Plik zawierający klasę realizującą regulację PID. " alt="" coords="1083,155,1154,181"/>
+</map>

@@ -8,11 +8,20 @@ Measure::Measure()
 string Measure::getResult()
 {
     string result;
-    result += to_string(position) + "\t";
-    result += to_string(signal_level) + "\t";
-    result += to_string(signal_quality) + "\t";
-    result += to_string(received) + "\t";
-    result += to_string(bitrate) + "\t";
+    result += to_string(position) + ";";
+    result += to_string(signal_level) + ";";
+    result += to_string(signal_quality) + ";";
+    result += to_string(received) + ";";
+    result += to_string(bitrate) + ";";
+    result += to_string(lost) + ";";
+    if(not_in_order)
+        result += "true;";
+    else
+        result +="false;";
+    if(err)
+        result += "true;";
+    else
+        result +="false;";
     result += to_string(error);
     return result;
 } 
@@ -29,9 +38,12 @@ void Measure::collectData(ControlRX &ctr, CheckPackets &chk)
         received = UINT_MAX - previously_received;
     }
     previously_received = ctr.counter;
-    position = ctr.position;
+    position = ctr.start_position + ctr.position;
     bitrate = (double)received /(125000/ctr.packet_size);
-    error =chk.pomiar();
+    lost = chk.lost;
+    err = chk.err;
+    not_in_order = chk.not_in_order;
+    error =chk.getResults();
 
 }
 

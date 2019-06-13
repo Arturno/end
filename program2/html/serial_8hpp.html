@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Dokumentacja pliku RX/headers/serial.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_066579c6df6e8da68daeae87869b3d72.html">RX</a></li><li class="navelem"><a class="el" href="dir_1b596a20b76c02a07984afe23b25252e.html">headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definicje</a> &#124;
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku serial.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Plik zawierający funckje wykorzystywane do połączenia z kontrolerem enkodera za pomocą portu szeregowego.  
+<a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;termios.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Wykres zależności załączania dla serial.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="serial_8hpp__incl.png" border="0" usemap="#RX_2headers_2serial_8hpp" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik:</div>
+<div class="dyncontent">
+<div class="center"><img src="serial_8hpp__dep__incl.png" border="0" usemap="#RX_2headers_2serial_8hppdep" alt=""/></div>
+<map name="RX_2headers_2serial_8hppdep" id="RX_2headers_2serial_8hppdep">
+<area shape="rect" id="node2" href="position_8hpp.html" title="Plik zawierający fukncje wykorzystywane do odbioru danych z enkodera. " alt="" coords="6,80,171,107"/>
+<area shape="rect" id="node3" href="receiver_8hpp.html" title="Plik zawierający część programu po stronie odbiorczej receiver() " alt="" coords="5,155,172,181"/>
+<area shape="rect" id="node4" href="main_8hpp.html" title="Plik zawierający głowną funckję programu. " alt="" coords="51,229,126,256"/>
+</map>
+</div>
+</div>
+<p><a href="serial_8hpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definicje</h2></td></tr>
+<tr class="memitem:a89a3f5cc2cd988e1e8a5bcc65be39342"><td class="memItemLeft" align="right" valign="top"><a id="a89a3f5cc2cd988e1e8a5bcc65be39342"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>error_message</b>&#160;&#160;&#160;printf</td></tr>
+<tr class="separator:a89a3f5cc2cd988e1e8a5bcc65be39342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:addb98ee9cb8c68e817f90c122c0d739f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8hpp.html#addb98ee9cb8c68e817f90c122c0d739f">set_interface_attribs</a> (int fd, int speed, int parity)</td></tr>
+<tr class="memdesc:addb98ee9cb8c68e817f90c122c0d739f"><td class="mdescLeft">&#160;</td><td class="mdescRight">funkcja ustawiająca parametry połączenia z kontrolerem  <a href="#addb98ee9cb8c68e817f90c122c0d739f">Więcej...</a><br /></td></tr>
+<tr class="separator:addb98ee9cb8c68e817f90c122c0d739f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad300b122008561e90e3f13a60a0588fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8hpp.html#ad300b122008561e90e3f13a60a0588fb">set_blocking</a> (int fd, int should_block)</td></tr>
+<tr class="memdesc:ad300b122008561e90e3f13a60a0588fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">funkcja wyłączająca blokowanie portu  <a href="#ad300b122008561e90e3f13a60a0588fb">Więcej...</a><br /></td></tr>
+<tr class="separator:ad300b122008561e90e3f13a60a0588fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Plik zawierający funckje wykorzystywane do połączenia z kontrolerem enkodera za pomocą portu szeregowego. </p>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="ad300b122008561e90e3f13a60a0588fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad300b122008561e90e3f13a60a0588fb">&#9670;&nbsp;</a></span>set_blocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_blocking </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>should_block</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>funkcja wyłączająca blokowanie portu </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>adres portu </td></tr>
+    <tr><td class="paramname">should_block</td><td>informacja o blokowaniu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="addb98ee9cb8c68e817f90c122c0d739f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addb98ee9cb8c68e817f90c122c0d739f">&#9670;&nbsp;</a></span>set_interface_attribs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int set_interface_attribs </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>parity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>funkcja ustawiająca parametry połączenia z kontrolerem </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>adres portu </td></tr>
+    <tr><td class="paramname">speed</td><td>prędkość </td></tr>
+    <tr><td class="paramname">parity</td><td>protokół sprawdzania parzystości </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>int </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

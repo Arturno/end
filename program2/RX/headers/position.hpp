@@ -2,6 +2,8 @@
 #include <time.h>
 #include <iostream>
 #include "ControlRX.hpp"
+#define SPIKES 400
+#define DIAMETER 5
 /**
  * @file position.hpp
  * @brief Plik zawierający fukncje wykorzystywane do odbioru danych z enkodera
@@ -13,8 +15,8 @@
  * @param position pozycja odebrana od enkodera
  * @param end zmienna stanu programu informujaca czy należy dalej odbierać dane
  */
-void position(int &position, int &end);
-typedef struct
+void position(ControlRX &ctr);
+typedef struct position_t
 /**
  * @brief stuktura przechowująca wartość zwracaną od enkodera
  * 
@@ -22,7 +24,7 @@ typedef struct
 {
     bool correctly_parsed;         /**< zmienna przechowująca informacje czy dane zostaly poprawnie sparsowane*/
     int position;                  /**< pozycja zwracana od enkodera*/ 
-}position_t;
+};
 /**
  * @brief funkcja sprawdzająca czy dane które zostały odebrane od enkodera są poprawne
  * 

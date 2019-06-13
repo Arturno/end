@@ -69,10 +69,6 @@ void transmitter()
     TransmissionArrangement parameters(buffer);
     parameters.print();
     ControlTX ctr(parameters.bitrate, parameters.packet_size);
-    cout<<"#############################################################################"<<endl;
-    cout<<"Sterowanie programem"<<endl;
-    cout<<"M xxx - zmiana przepływności na wartość xxx Mb/s"<<endl;
-    cout<<"E - zakonczenie pomiaru"<<endl;
     ControlTX &rrr = ctr;
 
         thread UserCommunication(Control_TX, ref(ctr), RXSocket);

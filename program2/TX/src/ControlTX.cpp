@@ -38,45 +38,26 @@ void ControlTX::end_program()
 }
 void Control_TX(ControlTX &ctr, int socket_)
 {
-    char change = {};
-    char buffer[150];
+    int bitrate = 0;
+    char buffer[150] = {};
     while (ctr.state)
     {
-        cin >> change;
-        switch (change)
+        if (recv(socket_, buffer, sizeof(buffer), 0) <= 0)
         {
-        case 'E':
-            ctr.end_program();
-            buffer[0] = 0;
-            cout << "Koniec testu" << endl;
-            if (send(socket_, buffer, sizeof(buffer), 0) <= 0)
-            {
-                perror("send() ERROR");
-                exit(6);
-            }
-            break;
-        case 'M':
-            int bitrate;
-            bitrate = getNumber(1, 1000);
-            ctr.change_bitrate(bitrate);
-            cout<<"#############################################################################"<<endl;
-            cout << "Zmieniono przepływoność na:" << bitrate << "Mb/s" << endl;
-            cout<<"#############################################################################"<<endl;
-            sprintf(buffer, "%d", bitrate);
-            if (send(socket_, buffer, sizeof(buffer), 0) <= 0)
-            {
-                perror("send() ERROR");
-                exit(6);
-            }
-            break;
-        default:
-        {
-            cin.clear();
-            cin.sync();
-            string cl;
-            getline(cin, cl);
-            cout << "Błędna wartość" << endl;
+            perror("recv() ERROR");
+            exit(5);
         }
+        if(buffer[0] == 0)
+        {
+            ctr.end_program();
+            cout<<"Koniec testu"<<endl;
+            break;
+        }
+        else
+        {
+        bitrate = atoi(buffer);
+        ctr.change_bitrate(bitrate);
+        cout<<"Zmieniono przelywnosc na: "<<bitrate<<endl;
         }
     }
 }

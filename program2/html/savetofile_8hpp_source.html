@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Plik źródłowy RX/headers/savetofile.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_066579c6df6e8da68daeae87869b3d72.html">RX</a></li><li class="navelem"><a class="el" href="dir_1b596a20b76c02a07984afe23b25252e.html">headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">savetofile.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="savetofile_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SAV</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SAV</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../../TransmissionArrangement.hpp&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Measure_8hpp.html">Measure.hpp</a>&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ControlRX_8hpp.html">ControlRX.hpp</a>&quot;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">string</span> <a class="code" href="savetofile_8hpp.html#a94457fa2c212f3503207cc87e4f826f4">cr_filename</a>(<span class="keyword">class</span> <a class="code" href="classTransmissionArrangement.html">TransmissionArrangement</a> parameters);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">string</span> <a class="code" href="savetofile_8hpp.html#a34bdfb028600d031aad30f1bb91c20f9">signal_level</a>();</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="savetofile_8hpp.html#a594b63dcaf387ac3d75a8ac448e50873">meas_and_save</a>(<span class="keyword">class</span> <a class="code" href="classTransmissionArrangement.html">TransmissionArrangement</a> &amp;parameters, <span class="keyword">class</span> <a class="code" href="classControlRX.html">ControlRX</a> &amp;ctr, <span class="keyword">class</span> <a class="code" href="classCheckPackets.html">CheckPackets</a> &amp;chk);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classCheckPackets_html"><div class="ttname"><a href="classCheckPackets.html">CheckPackets</a></div><div class="ttdoc">Klasa służąca sprawdzaniu pakietów przychodzących. </div><div class="ttdef"><b>Definition:</b> Check.hpp:23</div></div>
+<div class="ttc" id="classTransmissionArrangement_html"><div class="ttname"><a href="classTransmissionArrangement.html">TransmissionArrangement</a></div><div class="ttdoc">Klasa służąca do ustanowienia poczatkowych parametrow transmisji. </div><div class="ttdef"><b>Definition:</b> TransmissionArrangement.hpp:21</div></div>
+<div class="ttc" id="Measure_8hpp_html"><div class="ttname"><a href="Measure_8hpp.html">Measure.hpp</a></div><div class="ttdoc">Plik zawierający definicję klasy Measure oraz funkcje przez nią wykorzystywane. </div></div>
+<div class="ttc" id="savetofile_8hpp_html_a594b63dcaf387ac3d75a8ac448e50873"><div class="ttname"><a href="savetofile_8hpp.html#a594b63dcaf387ac3d75a8ac448e50873">meas_and_save</a></div><div class="ttdeci">void meas_and_save(class TransmissionArrangement &amp;parameters, class ControlRX &amp;ctr, class CheckPackets &amp;chk)</div><div class="ttdoc">funkcja realizująca zapis wyników pomiarów do pliku </div><div class="ttdef"><b>Definition:</b> savetofile.cpp:55</div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="savetofile_8hpp_html_a34bdfb028600d031aad30f1bb91c20f9"><div class="ttname"><a href="savetofile_8hpp.html#a34bdfb028600d031aad30f1bb91c20f9">signal_level</a></div><div class="ttdeci">string signal_level()</div><div class="ttdoc">funkcja pobierająca odbieraną moc sygnału i wyznaczoną przez system jakość linku </div><div class="ttdef"><b>Definition:</b> savetofile.cpp:32</div></div>
+<div class="ttc" id="savetofile_8hpp_html_a94457fa2c212f3503207cc87e4f826f4"><div class="ttname"><a href="savetofile_8hpp.html#a94457fa2c212f3503207cc87e4f826f4">cr_filename</a></div><div class="ttdeci">string cr_filename(class TransmissionArrangement parameters)</div><div class="ttdoc">funkcja generująca nazwę pliku </div><div class="ttdef"><b>Definition:</b> savetofile.cpp:4</div></div>
+<div class="ttc" id="classControlRX_html"><div class="ttname"><a href="classControlRX.html">ControlRX</a></div><div class="ttdoc">Klasa przechowująca stan programu i jego najważniejsze parametry. Odpowiedzialna również za sterowani...</div><div class="ttdef"><b>Definition:</b> ControlRX.hpp:17</div></div>
+<div class="ttc" id="ControlRX_8hpp_html"><div class="ttname"><a href="ControlRX_8hpp.html">ControlRX.hpp</a></div><div class="ttdoc">Plik zawierający klasę ControlRX, kontrolującą stan programu po stronie odbiorczej. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -20,14 +20,16 @@ using namespace std;
 class Measure
 {
     public:
-    int position;                           /**< pozycja strony odbiorczej, pobrana od enkodera*/
+    double position;                           /**< pozycja strony odbiorczej, pobrana od enkodera*/
     int signal_level;                       /**< poziom sygnału WiFi odbieranego przez stronę odbiorczą */
     int signal_quality;                     /**< wyznaczona przez system jakość linku */
     unsigned int received;                  /**< liczba odebranych pakietów*/
     unsigned int previously_received;       /**< zmienna służąca do określenia liczby odebranych pakietów*/
     double bitrate;                         /**< przepływnosc wyznaczona na podstawie liczby pakietów*/
     double error;                           /**< procent błędnie odebranych bitów do ogolnej liczby przesłanych bitów*/
-
+    int lost;
+    bool err;
+    bool not_in_order;
      /**
      * @brief Konstruktor klasy Measure
      * @details inicjalizuje obiekt klasy z wszystkimi wartościami ustawionymi na 0

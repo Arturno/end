@@ -1,0 +1,6 @@
+<map id="TX/headers/ControlTX.hpp" name="TX/headers/ControlTX.hpp">
+<area shape="rect" id="node2" href="$sendingPackets_8hpp.html" title="Plik zawierający funkcje realizujące wysyłanie pakietów. " alt="" coords="5,80,216,107"/>
+<area shape="rect" id="node3" href="$transmitter_8hpp.html" title="Plik zawierający stronę nadawczą programu transmitter() " alt="" coords="163,155,343,181"/>
+<area shape="rect" id="node5" href="$adaptation_8hpp.html" title="Plik zawierający funkcję odpowiadającą za dostosowanie czasu opóźnienia wysyłanych pakietów..." alt="" coords="291,80,469,107"/>
+<area shape="rect" id="node4" href="$main_8hpp.html" title="Plik zawierający głowną funckję programu. " alt="" coords="216,229,291,256"/>
+</map>

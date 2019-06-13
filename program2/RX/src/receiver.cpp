@@ -60,7 +60,8 @@ void receiver()
     memset(buffer, 0, sizeof(buffer));
     TransmissionArrangement parameters;
     parameters.tochar(buffer);
-    parameters.print();
+    ControlRX ctr(parameters.bitrate, parameters.packet_size);
+    CheckPackets chk(parameters.packet_size, parameters.protocol);
     connect(socketTCP_, (struct sockaddr *)&TX_TCP, sizeof(TX_TCP));
 
     if (send(socketTCP_, buffer, sizeof(buffer), 0) <= 0)
@@ -69,14 +70,12 @@ void receiver()
         exit(6);
     }
     //koniec ogolnego
-    ControlRX ctr(parameters.bitrate, parameters.packet_size);
-    CheckPackets chk;
 
-
-    thread sterowanieProgramem(Control_RX, ref(ctr), ref(parameters.bitrate), socketTCP_);
+    parameters.print();
+    thread sterowanieProgramem(Control_RX, ref(ctr), socketTCP_);
 
     thread Output(meas_and_save, ref(parameters),ref(ctr), ref(chk));
-    //thread poz(pozycja, ref(ctr));
+    thread poz(position, ref(ctr));
 
 
     switch (parameters.protocol)
@@ -101,7 +100,7 @@ void receiver()
 
     Output.join();
     sterowanieProgramem.join();
-    //poz.join();
+    poz.join();
 
     shutdown(socketTCP_, SHUT_RDWR);
 }

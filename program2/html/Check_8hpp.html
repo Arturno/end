@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Dokumentacja pliku RX/headers/Check.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_066579c6df6e8da68daeae87869b3d72.html">RX</a></li><li class="navelem"><a class="el" href="dir_1b596a20b76c02a07984afe23b25252e.html">headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Struktury danych</a> &#124;
+<a href="#define-members">Definicje</a> &#124;
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku Check.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Plik zawierający klasę <a class="el" href="classCheckPackets.html" title="Klasa służąca sprawdzaniu pakietów przychodzących. ">CheckPackets</a> i funkcje przez nią wykorzystywane.  
+<a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;limits.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="TransmissionArrangement_8hpp_source.html">../../TransmissionArrangement.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Wykres zależności załączania dla Check.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="Check_8hpp__incl.png" border="0" usemap="#RX_2headers_2Check_8hpp" alt=""/></div>
+<map name="RX_2headers_2Check_8hpp" id="RX_2headers_2Check_8hpp">
+<area shape="rect" id="node7" href="TransmissionArrangement_8hpp.html" title="Plik zawierający klasę TransmissionArrangement oraz fukcje przez nią uzywane. " alt="" coords="258,80,481,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik:</div>
+<div class="dyncontent">
+<div class="center"><img src="Check_8hpp__dep__incl.png" border="0" usemap="#RX_2headers_2Check_8hppdep" alt=""/></div>
+<map name="RX_2headers_2Check_8hppdep" id="RX_2headers_2Check_8hppdep">
+<area shape="rect" id="node2" href="receiving_8hpp.html" title="Plik zawierający fukcje do odbioru pakietów przesłanych za pomocą różnych protokołów. " alt="" coords="5,155,177,181"/>
+<area shape="rect" id="node5" href="Measure_8hpp.html" title="Plik zawierający definicję klasy Measure oraz funkcje przez nią wykorzystywane. " alt="" coords="185,80,355,107"/>
+<area shape="rect" id="node3" href="receiver_8hpp.html" title="Plik zawierający część programu po stronie odbiorczej receiver() " alt="" coords="107,229,273,256"/>
+<area shape="rect" id="node4" href="main_8hpp.html" title="Plik zawierający głowną funckję programu. " alt="" coords="153,304,227,331"/>
+<area shape="rect" id="node6" href="savetofile_8hpp.html" title="Plik zawierający funkcje odpowiadające za zapis wyników testu do pliku. " alt="" coords="202,155,378,181"/>
+</map>
+</div>
+</div>
+<p><a href="Check_8hpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Struktury danych</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCheckPackets.html">CheckPackets</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Klasa służąca sprawdzaniu pakietów przychodzących.  <a href="classCheckPackets.html#details">Więcej...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definicje</h2></td></tr>
+<tr class="memitem:a032503e76d6f69bc67e99e909c8125da"><td class="memItemLeft" align="right" valign="top"><a id="a032503e76d6f69bc67e99e909c8125da"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TABLE_SIZE</b>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:a032503e76d6f69bc67e99e909c8125da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ff29830fde482fdf175988774b78edb"><td class="memItemLeft" align="right" valign="top"><a id="a0ff29830fde482fdf175988774b78edb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MTU</b>&#160;&#160;&#160;1500</td></tr>
+<tr class="separator:a0ff29830fde482fdf175988774b78edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:a9161fc863171c7be0683ee216ad6d24c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Check_8hpp.html#a9161fc863171c7be0683ee216ad6d24c">check</a> (class <a class="el" href="classCheckPackets.html">CheckPackets</a> &amp;chk, int &amp;state)</td></tr>
+<tr class="memdesc:a9161fc863171c7be0683ee216ad6d24c"><td class="mdescLeft">&#160;</td><td class="mdescRight">funkcja kontrolująca cały mechanizm sprawdzania  <a href="#a9161fc863171c7be0683ee216ad6d24c">Więcej...</a><br /></td></tr>
+<tr class="separator:a9161fc863171c7be0683ee216ad6d24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Plik zawierający klasę <a class="el" href="classCheckPackets.html" title="Klasa służąca sprawdzaniu pakietów przychodzących. ">CheckPackets</a> i funkcje przez nią wykorzystywane. </p>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="a9161fc863171c7be0683ee216ad6d24c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9161fc863171c7be0683ee216ad6d24c">&#9670;&nbsp;</a></span>check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void check </td>
+          <td>(</td>
+          <td class="paramtype">class <a class="el" href="classCheckPackets.html">CheckPackets</a> &amp;&#160;</td>
+          <td class="paramname"><em>chk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>funkcja kontrolująca cały mechanizm sprawdzania </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chk</td><td>obiekt klasy <a class="el" href="classCheckPackets.html" title="Klasa służąca sprawdzaniu pakietów przychodzących. ">CheckPackets</a> </td></tr>
+    <tr><td class="paramname">state</td><td>zmienna stanu programu informujaca czy należy dalej wykonywać sprawdzanie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

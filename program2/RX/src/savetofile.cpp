@@ -26,6 +26,7 @@ string cr_filename(class TransmissionArrangement parameters)
     filename += ':';
     sprintf((char*)tempp.c_str(), "%d",temp->tm_sec);
     filename += tempp.c_str();
+    filename += ".csv";
     return filename;
 }
 
@@ -54,22 +55,39 @@ string signal_level()
 
 void meas_and_save(TransmissionArrangement &parameters , ControlRX &ctr, CheckPackets &chk)
 {
-
+    unsigned int  counter = 1;
+    int timeout = 0;
     fstream file;
-    file.open(cr_filename(parameters), ios::app);
-    file<<"Protokół:        "<<parameters.protocol<<endl;
-    file<<"Rozmiar pakietu: "<<parameters.packet_size<<endl;
+    string name = cr_filename(parameters);
+    string temp = name.substr(name.find("_")+1, name.find("."));
+    file.open(name, ios::app);
+    file<<"#PARAMETRY: "<<endl;
+    file << "Nazwa testu;"<<parameters.name<< endl;
+    file << "Data testu;"<<temp<<endl;
+    if(parameters.protocol == 0)
+        file<<"Protokol;UDP ("<<parameters.protocol<<")"<<endl;
+    else
+        file<<"Protokół;UDP-Lite ("<<parameters.protocol<<")"<<endl;
+    file<<"Rozmiar pakietu;"<<parameters.packet_size<<endl;
     if(parameters.protocol ==1)
     {
-        file<<"Kodowanie:       "<<parameters.coverage<<endl;
+        file<<"Kodowanie;"<<parameters.coverage<<endl;
     };
-    file << "Numer pomiaru, polozenie, poziom sygnału, jakość linku, liczba odebranych pakietów, przepływność"<<endl;
+    file << "#POMIARY: "<<endl;
+    file << "No; zadana_przeplywnosc; polozenie; poziom_sygnalu; jakosc_linku; odebrane_pakiety; przepływność; stracone_pakiety; flaga_zamiany; flaga_błledu; ber"<<endl;
     Measure meas;
     while (ctr.state)
     {
         sleep(1);
         meas.collectData(ctr,chk);
-        file <<meas.getResult()<<endl;
+        file <<counter<<";"<< ctr.bitrate<<";"<<meas.getResult()<<endl;
+        counter++;
+        if(meas.received == 0)
+            timeout++;
+        else
+            timeout = 0;
+        if(timeout == 10)
+            ctr.state =0;
     }
     file.close();
 }

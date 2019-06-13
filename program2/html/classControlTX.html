@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Dokumentacja klasy ControlTX</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pub-attribs">Pola danych</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja klasy ControlTX</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Klasa przechowująca stan programu i jego najważniejsze parametry. Odpowiedzialna również za sterowanie programem oraz komunikacje z użytkownikiem.  
+ <a href="classControlTX.html#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ControlTX_8hpp_source.html">ControlTX.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a8b1c09c8ee460aa5a9e1fb70a00b45b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlTX.html#a8b1c09c8ee460aa5a9e1fb70a00b45b7">ControlTX</a> (int bitrate, int <a class="el" href="classControlTX.html#a44240bb7c30df70b16f971eafee07a75">packet_size</a>)</td></tr>
+<tr class="memdesc:a8b1c09c8ee460aa5a9e1fb70a00b45b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor obiektu klasy <a class="el" href="classControlTX.html" title="Klasa przechowująca stan programu i jego najważniejsze parametry. Odpowiedzialna również za sterowani...">ControlTX</a>.  <a href="#a8b1c09c8ee460aa5a9e1fb70a00b45b7">Więcej...</a><br /></td></tr>
+<tr class="separator:a8b1c09c8ee460aa5a9e1fb70a00b45b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20c61a001175d04e24e74cb80c9123ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlTX.html#a20c61a001175d04e24e74cb80c9123ae">change_bitrate</a> (int bitrate)</td></tr>
+<tr class="memdesc:a20c61a001175d04e24e74cb80c9123ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda umożliwiająca zmianę zadanej przepływności podczas trwania programu.  <a href="#a20c61a001175d04e24e74cb80c9123ae">Więcej...</a><br /></td></tr>
+<tr class="separator:a20c61a001175d04e24e74cb80c9123ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c780fa7e6d790a09abe5088979cb9b7"><td class="memItemLeft" align="right" valign="top"><a id="a3c780fa7e6d790a09abe5088979cb9b7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlTX.html#a3c780fa7e6d790a09abe5088979cb9b7">end_program</a> ()</td></tr>
+<tr class="memdesc:a3c780fa7e6d790a09abe5088979cb9b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda koncząca działanie programu. <br /></td></tr>
+<tr class="separator:a3c780fa7e6d790a09abe5088979cb9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Pola danych</h2></td></tr>
+<tr class="memitem:a7826e1c24244cfe19a45b1ebcf6efd63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlTX.html#a7826e1c24244cfe19a45b1ebcf6efd63">state</a></td></tr>
+<tr class="separator:a7826e1c24244cfe19a45b1ebcf6efd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf8facb8928ea9bfd4c92f1fa8d4e603"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlTX.html#acf8facb8928ea9bfd4c92f1fa8d4e603">counter</a></td></tr>
+<tr class="separator:acf8facb8928ea9bfd4c92f1fa8d4e603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24dcaa68f940565858f5d44a99ef5ab6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlTX.html#a24dcaa68f940565858f5d44a99ef5ab6">delay</a></td></tr>
+<tr class="separator:a24dcaa68f940565858f5d44a99ef5ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c3ed06416765865a56229a342c42d96"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlTX.html#a9c3ed06416765865a56229a342c42d96">to_send</a></td></tr>
+<tr class="separator:a9c3ed06416765865a56229a342c42d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4045edfd5d5eefc53e9e4320b31f7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlTX.html#a1a4045edfd5d5eefc53e9e4320b31f7c">packet_group</a></td></tr>
+<tr class="separator:a1a4045edfd5d5eefc53e9e4320b31f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44240bb7c30df70b16f971eafee07a75"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlTX.html#a44240bb7c30df70b16f971eafee07a75">packet_size</a></td></tr>
+<tr class="separator:a44240bb7c30df70b16f971eafee07a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Klasa przechowująca stan programu i jego najważniejsze parametry. Odpowiedzialna również za sterowanie programem oraz komunikacje z użytkownikiem. </p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="a8b1c09c8ee460aa5a9e1fb70a00b45b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b1c09c8ee460aa5a9e1fb70a00b45b7">&#9670;&nbsp;</a></span>ControlTX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ControlTX::ControlTX </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bitrate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>packet_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor obiektu klasy <a class="el" href="classControlTX.html" title="Klasa przechowująca stan programu i jego najważniejsze parametry. Odpowiedzialna również za sterowani...">ControlTX</a>. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitrate</td><td>zadana przez użytkownika przepływność </td></tr>
+    <tr><td class="paramname">packet_size</td><td>zadany przez użytkownika rozmiar jednego pakietu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a20c61a001175d04e24e74cb80c9123ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20c61a001175d04e24e74cb80c9123ae">&#9670;&nbsp;</a></span>change_bitrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ControlTX::change_bitrate </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bitrate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Metoda umożliwiająca zmianę zadanej przepływności podczas trwania programu. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitrate</td><td>nowa przepływność </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja pól</h2>
+<a id="acf8facb8928ea9bfd4c92f1fa8d4e603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf8facb8928ea9bfd4c92f1fa8d4e603">&#9670;&nbsp;</a></span>counter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int ControlTX::counter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Licznik wysłanych pakietów </p>
+
+</div>
+</div>
+<a id="a24dcaa68f940565858f5d44a99ef5ab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24dcaa68f940565858f5d44a99ef5ab6">&#9670;&nbsp;</a></span>delay</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ControlTX::delay</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opóźnienie pomiędzy wysyłaniem kolejnych paczek pakietów </p>
+
+</div>
+</div>
+<a id="a1a4045edfd5d5eefc53e9e4320b31f7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4045edfd5d5eefc53e9e4320b31f7c">&#9670;&nbsp;</a></span>packet_group</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ControlTX::packet_group</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Liczba pakietów w jednej grupie </p>
+
+</div>
+</div>
+<a id="a44240bb7c30df70b16f971eafee07a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44240bb7c30df70b16f971eafee07a75">&#9670;&nbsp;</a></span>packet_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ControlTX::packet_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rozmiar jednego pakietu </p>
+
+</div>
+</div>
+<a id="a7826e1c24244cfe19a45b1ebcf6efd63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7826e1c24244cfe19a45b1ebcf6efd63">&#9670;&nbsp;</a></span>state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ControlTX::state</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stan programu running/end </p>
+
+</div>
+</div>
+<a id="a9c3ed06416765865a56229a342c42d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c3ed06416765865a56229a342c42d96">&#9670;&nbsp;</a></span>to_send</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ControlTX::to_send</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Liczba pakietów, które powinny zostać wysłane w ciągu jednej sekundy aby uzyskać przepływność zadaną przez użytkownika </p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li>TX/headers/<a class="el" href="ControlTX_8hpp_source.html">ControlTX.hpp</a></li>
+<li>TX/src/ControlTX.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Plik źródłowy RX/headers/position.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_066579c6df6e8da68daeae87869b3d72.html">RX</a></li><li class="navelem"><a class="el" href="dir_1b596a20b76c02a07984afe23b25252e.html">headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">position.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="position_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="serial_8hpp.html">serial.hpp</a>&quot;</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ControlRX_8hpp.html">ControlRX.hpp</a>&quot;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="position_8hpp.html#a7bdd7f42e51d64e3b53e7af54d17c384">position</a>(<span class="keywordtype">int</span> &amp;<a class="code" href="position_8hpp.html#a7bdd7f42e51d64e3b53e7af54d17c384">position</a>, <span class="keywordtype">int</span> &amp;end);</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structposition__t.html">   17</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structposition__t.html">position_t</a></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structposition__t.html#a5d0394172f862f9df2e399b481dc274f">   23</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structposition__t.html#a5d0394172f862f9df2e399b481dc274f">correctly_parsed</a>;         </div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structposition__t.html#ae5ae7902a8aca5d4dd65574a3735c323">   24</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structposition__t.html#ae5ae7902a8aca5d4dd65574a3735c323">position</a>;                  </div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="position_8hpp.html#a9b46b54d2e5b37f57633677124d96292">check</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b, <span class="keywordtype">bool</span> parsed);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">int</span> <a class="code" href="position_8hpp.html#a706b2725145a1c7f120a0b9aa01e6b99">getPosition</a>(<span class="keywordtype">int</span> fenc);</div><div class="ttc" id="structposition__t_html_a5d0394172f862f9df2e399b481dc274f"><div class="ttname"><a href="structposition__t.html#a5d0394172f862f9df2e399b481dc274f">position_t::correctly_parsed</a></div><div class="ttdeci">bool correctly_parsed</div><div class="ttdef"><b>Definition:</b> position.hpp:23</div></div>
+<div class="ttc" id="structposition__t_html"><div class="ttname"><a href="structposition__t.html">position_t</a></div><div class="ttdoc">stuktura przechowująca wartość zwracaną od enkodera </div><div class="ttdef"><b>Definition:</b> position.hpp:17</div></div>
+<div class="ttc" id="serial_8hpp_html"><div class="ttname"><a href="serial_8hpp.html">serial.hpp</a></div><div class="ttdoc">Plik zawierający funckje wykorzystywane do połączenia z kontrolerem enkodera za pomocą portu szeregow...</div></div>
+<div class="ttc" id="position_8hpp_html_a7bdd7f42e51d64e3b53e7af54d17c384"><div class="ttname"><a href="position_8hpp.html#a7bdd7f42e51d64e3b53e7af54d17c384">position</a></div><div class="ttdeci">void position(int &amp;position, int &amp;end)</div><div class="ttdoc">funkcja cyklicznie pobierajaca dane od enkodera </div></div>
+<div class="ttc" id="structposition__t_html_ae5ae7902a8aca5d4dd65574a3735c323"><div class="ttname"><a href="structposition__t.html#ae5ae7902a8aca5d4dd65574a3735c323">position_t::position</a></div><div class="ttdeci">int position</div><div class="ttdef"><b>Definition:</b> position.hpp:24</div></div>
+<div class="ttc" id="position_8hpp_html_a706b2725145a1c7f120a0b9aa01e6b99"><div class="ttname"><a href="position_8hpp.html#a706b2725145a1c7f120a0b9aa01e6b99">getPosition</a></div><div class="ttdeci">int getPosition(int fenc)</div><div class="ttdoc">funkcja pobierająca i parsująca dane od enkodera </div><div class="ttdef"><b>Definition:</b> position.cpp:53</div></div>
+<div class="ttc" id="position_8hpp_html_a9b46b54d2e5b37f57633677124d96292"><div class="ttname"><a href="position_8hpp.html#a9b46b54d2e5b37f57633677124d96292">check</a></div><div class="ttdeci">bool check(int a, int b, bool parsed)</div><div class="ttdoc">funkcja sprawdzająca czy dane które zostały odebrane od enkodera są poprawne </div><div class="ttdef"><b>Definition:</b> position.cpp:24</div></div>
+<div class="ttc" id="ControlRX_8hpp_html"><div class="ttname"><a href="ControlRX_8hpp.html">ControlRX.hpp</a></div><div class="ttdoc">Plik zawierający klasę ControlRX, kontrolującą stan programu po stronie odbiorczej. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

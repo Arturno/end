@@ -48,6 +48,6 @@ class ControlTX
  * @param ctr Obiekt klasy ControlTX
  * @param socket_ Gniazdo do komunikacji ze stroną odbiorczą
  */
-void Control_TX(class ControlTX &ctr, int socket_);
+void Control_TX(ControlTX &ctr, int socket_);
 
 #endif 

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Program do badania przepustowości łącza radiowego: Plik źródłowy RX/headers/receiving.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Program do badania przepustowości łącza radiowego
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_066579c6df6e8da68daeae87869b3d72.html">RX</a></li><li class="navelem"><a class="el" href="dir_1b596a20b76c02a07984afe23b25252e.html">headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">receiving.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="receiving_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RCV</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RCV</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;arpa/inet.h&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;sys/types.h&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;sys/socket.h&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Check_8hpp.html">Check.hpp</a>&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define SOL_UDPLITE 136</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define UDPLITE_RECV_CSCOV 11</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="receiving_8hpp.html#a8551fd4b06ece6f94fa376230b7f6d52">odbieranieUDP</a>(<span class="keyword">struct</span> sockaddr_in TX_meas, <span class="keyword">struct</span> sockaddr_in RX_meas, <span class="keywordtype">int</span> packet_size ,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;counter, <span class="keywordtype">int</span> &amp;state, <span class="keyword">class</span> <a class="code" href="classCheckPackets.html">CheckPackets</a> &amp;chk);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="receiving_8hpp.html#a1876fd75c25017ef195deb9f882c1fa3">odbieranieUDPLite</a>(<span class="keyword">struct</span> sockaddr_in TX_meas, <span class="keyword">struct</span> sockaddr_in RX_meas, <span class="keywordtype">int</span> packet_size, <span class="keywordtype">int</span> coverage,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;counter, <span class="keywordtype">int</span> &amp;state);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> <a class="code" href="receiving_8hpp.html#a0097afd65b6a3d67b447916eb4ef77b1">odbieranieTCP</a>(<span class="keyword">struct</span> sockaddr_in TX_meas, <span class="keyword">struct</span> sockaddr_in RX_meas, <span class="keywordtype">int</span> packet_size,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;counter, <span class="keywordtype">int</span> &amp;state);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif </span></div><div class="ttc" id="classCheckPackets_html"><div class="ttname"><a href="classCheckPackets.html">CheckPackets</a></div><div class="ttdoc">Klasa służąca sprawdzaniu pakietów przychodzących. </div><div class="ttdef"><b>Definition:</b> Check.hpp:23</div></div>
+<div class="ttc" id="Check_8hpp_html"><div class="ttname"><a href="Check_8hpp.html">Check.hpp</a></div><div class="ttdoc">Plik zawierający klasę CheckPackets i funkcje przez nią wykorzystywane. </div></div>
+<div class="ttc" id="receiving_8hpp_html_a8551fd4b06ece6f94fa376230b7f6d52"><div class="ttname"><a href="receiving_8hpp.html#a8551fd4b06ece6f94fa376230b7f6d52">odbieranieUDP</a></div><div class="ttdeci">void odbieranieUDP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, unsigned int &amp;counter, int &amp;state, class CheckPackets &amp;chk)</div><div class="ttdoc">Funkcja realizująca odbiór UDP. </div><div class="ttdef"><b>Definition:</b> receiving.cpp:4</div></div>
+<div class="ttc" id="receiving_8hpp_html_a1876fd75c25017ef195deb9f882c1fa3"><div class="ttname"><a href="receiving_8hpp.html#a1876fd75c25017ef195deb9f882c1fa3">odbieranieUDPLite</a></div><div class="ttdeci">void odbieranieUDPLite(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, int coverage, unsigned int &amp;counter, int &amp;state)</div><div class="ttdoc">Funkcja realizująca odbiór UDP-Lite. </div><div class="ttdef"><b>Definition:</b> receiving.cpp:44</div></div>
+<div class="ttc" id="receiving_8hpp_html_a0097afd65b6a3d67b447916eb4ef77b1"><div class="ttname"><a href="receiving_8hpp.html#a0097afd65b6a3d67b447916eb4ef77b1">odbieranieTCP</a></div><div class="ttdeci">void odbieranieTCP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, unsigned int &amp;counter, int &amp;state)</div><div class="ttdef"><b>Definition:</b> receiving.cpp:72</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -28,14 +28,14 @@ void adaptation(ControlTX &ctr, int PID_time)
         {
             double current_delay = (PID_time*1000) / send;
             double delay_diff = current_delay - target_delay;
-            cout<<"Roznica "<< delay_diff<<endl;
-            cout << "OP obecne:" << current_delay << " " << target_delay << endl;
-            cout << "Opoznienie" << ctr.delay << endl;
+            //cout<<"Roznica "<< delay_diff<<endl;
+            //cout << "OP obecne:" << current_delay << " " << target_delay << endl;
+            //cout << "Opoznienie" << ctr.delay << endl;
             double inc = pid.calculate(0, delay_diff);
             
             //cout << "inc " << inc << endl;
             ctr.delay += inc;
-            cout<<"OP:"<<ctr.delay<<" INC:"<<inc<<endl;
+            //cout<<"OP:"<<ctr.delay<<" INC:"<<inc<<endl;
             if(ctr.delay < 0)
             {
                 ctr.delay =0;

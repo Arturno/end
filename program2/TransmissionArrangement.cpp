@@ -5,16 +5,20 @@ int getNumber(int min, int max)
     int temp;
     string cl;
     while (1)
-    {
+    {   
+        //pobranie wartości od użytkownika
         cin >> temp;
+        //sprawdzenie czy podana wartość to liczba
         if (!cin)
-        {
+        {   
+            //czyszczenie buforów i flag błędu
             cin.clear(); 
             cin.sync();
-            cout << "Podana wartość nie jest liczbą." << endl;
             getline(cin, cl);
+            cout << "Podana wartość nie jest liczbą." << endl;
             continue;
         }
+        //sprawdzenie czy podana wrtość mieści się w granicach
         if (temp > max || temp < min)
         {
             cout << "Podana wartość jesc spoza zakresu [" << min << "," << max << "]" << endl;
@@ -22,17 +26,19 @@ int getNumber(int min, int max)
         }
         break;
     }
+    //jesli podana wartość jest liczbą z podanego zakresu zostaje zwrócona przez funkcję 
     return temp;
 }
 
 TransmissionArrangement::TransmissionArrangement()
 {
+    //pobranie danych od użytkownika
     cout << "Podaj nazwę testu:" << endl;
     cin >> name;
     cout << "Podaj wymaganą przepływność w Mb/s:" << endl;
-    bitrate = getNumber(0, 1000);
+    bitrate = getNumber(1, 1000);
     cout << "Podaj rozmiar ramki w B:" << endl;
-    packet_size = getNumber(1, 10000);
+    packet_size = getNumber(1, 1500);
     cout << "Podaj protokół [0 - UDP, 1 - UDP-Lite]:" << endl;
     protocol = getNumber(0, 2);
     if (protocol == 1)
@@ -42,17 +48,13 @@ TransmissionArrangement::TransmissionArrangement()
     }
     else
         coverage = 100;
-    if (bitrate != 0)
-    {
-        cout << "Podaj czas adaptacji przepływności w ms:" << endl;
-        PID_time = getNumber(0, 1000);
-    }
-    else
-        PID_time = 10;
+    cout << "Podaj czas adaptacji przepływności w ms:" << endl;
+    PID_time = getNumber(0, 1000);
     date = time(NULL);
 }
 TransmissionArrangement::TransmissionArrangement(char tablica[])
 {
+    //zapisanie obiektu w formie tablicy podanej jako parametr metody
     int shift = 0;
     char transfer[4];
     strncpy(name, tablica, sizeof(name));
@@ -99,6 +101,7 @@ void TransmissionArrangement::tochar(char tablica[])
 
 void TransmissionArrangement::getDate()
 {
+    //pobranie daty i zapisanie jej w formacie YYYY-MM-DD hh:mm:ss
     date = time(NULL);
     tm *temp;
     temp = localtime(&date);
@@ -118,6 +121,7 @@ void OgolneInfo::getAddress()
 */
 void TransmissionArrangement::print()
 {
+    //wypisanie zawartości obiektu
     cout << endl;
     cout << "#############################################################################" << endl;
     cout << "Nazwa testu:  .................................  " << name << endl;

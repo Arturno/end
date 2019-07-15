@@ -3,6 +3,7 @@
 
 string cr_filename(class TransmissionArrangement parameters)
 {
+    //utworzenie nazwy pliku na podstawie parametrów testu
     string filename = "results/";
     tm *temp;
     temp = localtime(&parameters.date);
@@ -30,37 +31,20 @@ string cr_filename(class TransmissionArrangement parameters)
     return filename;
 }
 
-string signal_level()
-{
-    string signal_level;
-    int link, level;
-    string line;
-    string quality;
-    fstream file;
-    file.open("/proc/net/wireless", ios::in);
-    getline(file, line);
-    getline(file, line);
-    if(getline(file, line))
-    {
-        quality = line.substr(15,15);
-        link=stoi(quality.substr(0,2));
-        level=stoi(quality.substr(5,7));
-    }
-    else
-        level =-256;
-    file.close();
-    signal_level = to_string(level) + ",\t" + to_string(link);
-    return signal_level;
-}
-
 void meas_and_save(TransmissionArrangement &parameters , ControlRX &ctr, CheckPackets &chk)
 {
+    //licznik zapisanych wyników, równoznaczny z liczbą sekund od początku testu
     unsigned int  counter = 1;
+    //licznik, czasu w którym nie odebrano żadnego pakietu
     int timeout = 0;
+
+    //utworzenie pliku z wynikami testu
     fstream file;
     string name = cr_filename(parameters);
-    string temp = name.substr(name.find("_")+1, name.find("."));
+    string temp = name.substr(name.find("_")+1, (name.length() - name.find("_") - 5));
     file.open(name, ios::app);
+
+    //zapis ogólnych informacji i parametrów stałych podczas trwania testu
     file<<"#PARAMETRY: "<<endl;
     file << "Nazwa testu;"<<parameters.name<< endl;
     file << "Data testu;"<<temp<<endl;
@@ -74,21 +58,36 @@ void meas_and_save(TransmissionArrangement &parameters , ControlRX &ctr, CheckPa
         file<<"Kodowanie;"<<parameters.coverage<<endl;
     };
     file << "#POMIARY: "<<endl;
-    file << "No; zadana_przeplywnosc; polozenie; poziom_sygnalu; jakosc_linku; odebrane_pakiety; przepływność; stracone_pakiety; flaga_zamiany; flaga_błledu; ber"<<endl;
+    file << "No;zadana_przeplywnosc;polozenie;poziom_sygnalu;jakosc_linku;odebrane_pakiety;przeplywnosc;stracone_pakiety;flaga_zamiany;flaga_bledu;ber;kanal;przepustowosc_kanalu;szerokosc_kanalu;MCS;NSS;SGI"<<endl;
+    cout << "No\tpolozenie poziom_sygn\tjakosc_linku\tprzeplywnosc\tstracone\tber"<<endl;
+
+    //utworzenie obiektu do zbierania parametrów podczas testu
     Measure meas;
     while (ctr.state)
     {
+        //odczekanie sekundy
         sleep(1);
+        //pomiar parametrów 
         meas.collectData(ctr,chk);
+        //zapisanie wszystkich parametrów do pliku
         file <<counter<<";"<< ctr.bitrate<<";"<<meas.getResult()<<endl;
+        //wypisanie najważniejszych paraketrów w konsoli
+        cout <<counter<<"\t"<< meas.position<<"\t "<<meas.signal_level<<"\t\t"<<meas.signal_quality<<"\t\t"<<meas.bitrate<<"\t\t"<< meas.lost<<"\t\t"<< meas.error<<endl;
+        //zwiększenie licznika czasu
         counter++;
+        //sprawdzenie czy w ostatniej sekundzie zostały odebrane jakiekolwiek pakiety
         if(meas.received == 0)
             timeout++;
         else
             timeout = 0;
+        //w przypadku nieodebrania żadnego pakietu przez 10 sekund, program konczy pomiar
         if(timeout == 10)
+        {
             ctr.state =0;
+            cout<<"Nie odebrano pakietu od 10 sekund. Kończenie programu."<<endl;
+        }
     }
+    //zamkniecie pliku
     file.close();
 }
 

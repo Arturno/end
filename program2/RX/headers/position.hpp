@@ -16,7 +16,7 @@
  * @param end zmienna stanu programu informujaca czy należy dalej odbierać dane
  */
 void position(ControlRX &ctr);
-typedef struct position_t
+struct position_t
 /**
  * @brief stuktura przechowująca wartość zwracaną od enkodera
  * 

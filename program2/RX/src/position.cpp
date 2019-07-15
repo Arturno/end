@@ -3,26 +3,28 @@
 
 void position(ControlRX &ctr)
 {
-
+    //otwarcie portu szerwgowego w celu odbierania informacji z enkodera
     int fenc = open("/dev/ttyACM0", O_RDWR | O_NOCTTY | O_SYNC);
     if (fenc < 0)
     {
         error_message("error %d opening %s: %s", errno, "/dev/ttyACM0", strerror(errno));
         exit(1);
     }
-
-    set_interface_attribs(fenc, B9600, 0); // set speed to 115,200 bps, 8n1 (no parity)
-    set_blocking(fenc, 0);                 // set no blocking
+    //ustawienie prędkości do 115,200 bps, wyłączenie sprawdzania 
+    set_interface_attribs(fenc, B9600, 0);
+    //wyłączenie blokowania portu
+    set_blocking(fenc, 0);                 
     while(ctr.state)
     {
-    int temp = getPosition(fenc);
-    if(temp!=0)
-    ctr.position=(double)temp*3.14*DIAMETER/SPIKES;
-    //std::cout<<position<<std::endl;
+        int temp = getPosition(fenc);
+        if(temp!=0)
+            //zapisanie pozycji do obiektu przechowujące informacje o wynikach testu
+            ctr.position=(double)temp*3.14*DIAMETER/SPIKES;
     }
 }
 bool check(int a, int b, bool parsed)
-{
+{   
+    //sprawdzanie poprawnosci odebranych danych 
     if (a < 0)
         a *= (-1);
     if (parsed == true)
@@ -36,7 +38,6 @@ bool check(int a, int b, bool parsed)
     }
     else
     {
-        //printf("NOK1\n");
         return false;
     }
     if (b == 0)
@@ -45,43 +46,30 @@ bool check(int a, int b, bool parsed)
     }
     else
     {
-        //printf("NOK2, ");
-        //printf("%i\n", b);
         return false;
     }
 }
 int getPosition(int fenc)
 {
-    char buf[1000]; // buffer size not critical unless we make sure that each read operation reads all data from the input buffer
+    char buf[1000];
     char *p;
     char *r;
     char *s;
     int b;
     position_t res;
-
+    
     res.correctly_parsed = false;
+    //oczekiwanie na nazbieranie danych do bufora
     usleep(96000);
+    //odczytanie danych z bufora
     int n = read(fenc, buf, sizeof(buf));
-    //printf("%i,\n",n);
     buf[n] = '\0';
-    //printf("%s",buf);
-    //printf("%s", buf);
-    /* JUST FOR DEBUG
-    for (int i=0; i<n; i++)
+
+    if (n > 50)
     {
-        if (buf[i]=='\r')
-            buf[i]=' ';
-    }
-*/
-    // parsing!
-    //n = 51;
-    //printf("%s\n",buf);
-    if (n > 50) // give the chance to read something - if read less, it means that encoder board does not send data as expected
-    {
-        //system("clear");
-        //char buf2[1000] = "P=1234124                      ,C=121            ";
         p = buf;
-        r = strchr(p, 'C'); // begin of the "position" word
+        //pobieranie informacji o pozycji i sumy kontrolnej
+        r = strchr(p, 'C'); 
         s = strchr(p, 'P');
         if (r != NULL)
         {
@@ -93,7 +81,6 @@ int getPosition(int fenc)
             {
                 *r = '\0';
                 b = atof(p);
-                //res.position /= 1000;   // encoder gives position in milimeters, we want position in meters
                 res.correctly_parsed = true;
             }
         }
@@ -107,9 +94,7 @@ int getPosition(int fenc)
             {
                 *s = '\0';
                 res.position = atof(p);
-                //res.position /= 1000;   // encoder gives position in milimeters, we want position in meters
                 res.correctly_parsed = true;
-                //printf("%i\n", res.position);
             }
             else
             {
@@ -117,15 +102,14 @@ int getPosition(int fenc)
             }
         }
     }
-    //printf("ENC=%d POS=%d\n%s\n", n, res.position, buf);
     if (check(res.position, b, res.correctly_parsed))
     {
-        //printf("%i\t,%i\n", res.position, b);
         return res.position;
     }
     else
-    {   //printf("%i\t,%i\n", res.position, b);
+    {   
         res.correctly_parsed = false;
+        return res.position;
     }
 }
 

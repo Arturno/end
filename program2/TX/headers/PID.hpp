@@ -35,7 +35,7 @@ class PID
 	 */
 	PID(double dt, double max, double min, double Kp, double Kd, double Ki);
 	/**
-	 * @brief 
+	 * @brief funkcja do wyznaczania korekty jaką należy wprowadzić przy opóźnianiu pakietów
 	 * 
 	 * @param setpoint Zadana przez użytkownika przepływność
 	 * @param measured_value Przepływność uzyskana od ostatniej iteracji algorytmu

@@ -22,8 +22,8 @@ class ControlRX
     unsigned int counter;       /**<licznik odebranych pakietów*/
     int packet_group;           /**<liczba pakietów w grupie*/
     int packet_size;            /**<rozmiar pojedynczego pakietu*/
-    int bitrate;
-    int start_position;
+    int bitrate;                /**<zadana przez użytkownika przepływność */
+    int start_position;         /**<początkowa pozycja odbiornika */
     double position;            /**<położenie strony odbiorczej*/
 
     /**

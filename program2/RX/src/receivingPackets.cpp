@@ -3,19 +3,23 @@ using namespace std;
 
 void odbieranieUDP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, unsigned int &counter, int &state, class CheckPackets &chk)
 {
-    thread tututu(check, ref(chk), ref(state));
+    //wątek do sprawdzania pakietów
+    thread check_packet(check, ref(chk), ref(state));
+
+    //tworzenie gniazda
     const int socket_ = socket(AF_INET, SOCK_DGRAM, 0);
+    if (socket_ < 0)
+    {
+        perror("socket() ERROR");
+        exit(2);
+    }
+    //ustawienie timeoutu na otrzymanie pakietów (10s)
     struct timeval tv;
     tv.tv_sec = 10;
     tv.tv_usec = 0;
     if (setsockopt(socket_, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv)) < 0)
     {
         perror("Error");
-    }
-    if (socket_ < 0)
-    {
-        perror("socket() ERROR");
-        exit(2);
     }
     socklen_t len = sizeof(RX_meas);
     if (bind(socket_, (struct sockaddr *)&RX_meas, len) < 0)
@@ -23,35 +27,39 @@ void odbieranieUDP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int p
         perror("bind() ERROR");
         exit(3);
     }
-
+    //głowna funkcja odpowiedzialna za odbieranie pakietów
     while (state)
-    {
-        //if(((spr.dodawanie+1)%100)==spr.sprawdzanie)
-        //{
-        //     cout<<"errrr"<<endl;
-        // }
+    {   
+        //odbieranie pakietów
         if (recvfrom(socket_, chk.add(), packet_size, 0, (struct sockaddr *)&RX_meas, &len) < 0)
         {
             perror("recvfrom() ERROR");
             exit(4);
         }
-        /*int nrpakietu;
-        strncpy(przeniesienie, buffer, 10);
-        nrpakietu = atoi(przeniesienie);
-        cout<<nrpakietu<<" ";
-        strncpy(bufor, &(buffer[10]),sizeof(bufor));
-        cout<<bufor<<endl;*/
+        //zwiększanie licznika odebranych pakietów
         counter++;
     }
-    tututu.join();
-    //spr.pomiar();
+    //konczenie wątku do sprawdzania pakietów
+    check_packet.join();
+
+    //zamykanie gniazd
     shutdown(socket_, SHUT_RDWR);
 }
 
-void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, int kodowanie, unsigned int &licznik, int &stan)
+void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int packet_size, unsigned int &counter, int &state, class CheckPackets &chk, int &coverage)
 {
-    char buffer[rozmiar_pakietu] = {};
+    //wątek do sprawdzania pakietów
+    thread check_packet(check, ref(chk), ref(state));
+
+    //tworzenie gniazda
     const int socket_ = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDPLITE);
+    if (socket_ < 0)
+    {
+        perror("socket() ERROR");
+        exit(2);
+    }
+
+    //ustawienie timeoutu na otrzymanie pakietów (10s)
     struct timeval tv;
     tv.tv_sec = 10;
     tv.tv_usec = 0;
@@ -59,69 +67,31 @@ void odbieranieUDPLite(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar
     {
         perror("Error");
     }
-    if (socket_ < 0)
-    {
-        perror("socket() ERROR");
-        exit(2);
-    }
-    setsockopt(socket_, SOL_UDPLITE, UDPLITE_RECV_CSCOV, &kodowanie, sizeof(int));
+    //ustawienie kodowania pakietów 
+    setsockopt(socket_, SOL_UDPLITE, UDPLITE_RECV_CSCOV, &coverage, sizeof(int));
     socklen_t len = sizeof(RX);
     if (bind(socket_, (struct sockaddr *)&RX, len) < 0)
     {
         perror("bind() ERROR");
         exit(3);
     }
-    while (stan)
+
+    //głowna funkcja odpowiedzialna za odbieranie pakietów
+    while (state)
     {
-        if (recvfrom(socket_, buffer, sizeof(buffer), 0, (struct sockaddr *)&RX, &len) < 0)
+        //odbieranie pakietów
+        if (recvfrom(socket_, chk.add(), packet_size, 0, (struct sockaddr *)&RX, &len) < 0)
         {
             perror("recvfrom() ERROR");
             exit(4);
         }
-        licznik++;
-    }
-    shutdown(socket_, SHUT_RDWR);
-}
-
-void odbieranieTCP(struct sockaddr_in TX, struct sockaddr_in RX, int rozmiar_pakietu, unsigned int &licznik, int &stan)
-{
-    const int socket_ = socket(AF_INET, SOCK_STREAM, 0);
-    char buffer[rozmiar_pakietu] = {};
-    if (socket_ < 0)
-    {
-        perror("socket() ERROR");
-        exit(2);
+        //zwiększanie licznika odebranych pakietów
+        counter++;
     }
 
-    socklen_t len = sizeof(TX);
-    int opt = 1;
-    setsockopt(socket_, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
-    if (bind(socket_, (struct sockaddr *)&RX, len) < 0)
-    {
-        perror("bind() ERROR");
-        exit(3);
-    }
+    //konczenie wątku do sprawdzania pakietów
+    check_packet.join();
 
-    if (listen(socket_, 10) < 0)
-    {
-        perror("listen() ERROR");
-        exit(4);
-    }
-
-    const int TXSocket = accept(socket_, (struct sockaddr *)&TX, &len);
-    if (TXSocket < 0)
-    {
-        perror("accept() ERROR");
-    }
-    while (stan)
-    {
-        if (recv(TXSocket, buffer, sizeof(buffer), 0) <= 0)
-        {
-            perror("recv() ERROR");
-            exit(5);
-        }
-        licznik++;
-    }
-    shutdown(TXSocket, SHUT_RDWR);
+    //zamykanie gniazd
     shutdown(socket_, SHUT_RDWR);
 }

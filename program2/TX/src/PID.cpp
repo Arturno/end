@@ -14,46 +14,34 @@ PID::PID(double dt, double max, double min, double Kp, double Kd, double Ki)
     _Ki = Ki;
     previous_error = 0;
     integral = 0;
-};
+}
 
 double PID::calculate(double setpoint, double measured_value)
 {
-    /*
+
     double error = setpoint - measured_value;
-    integral += error * _dt;
-    double derivative = (error - previous_error) / _dt;
-    double output = _Kp * error + _Ki * integral + _Kd * derivative;
-    previous_error = error;
 
-    if (output > _max)
-        output = _max;
-    else if (output < _min)
-        output = _min;
-    return output;
-    */
-       double error = setpoint - measured_value;
-
-    // Proportional term
+    //wyznaczenie wzmocnienia częsci proporcjonalnej
     double Pout = _Kp * error;
 
-    // Integral term
+    //wyznaczenie wzmocnienia częsci całkującej 
     integral += error * _dt;
     double Iout = _Ki * integral;
 
-    // Derivative term
+    //wyznaczenie wzmocnienia cześci różniczkującej
     double derivative = (error - previous_error) / _dt;
     double Dout = _Kd * derivative;
 
-    // Calculate total output
+    //obliczenie wyjściowego wzmocnienia
     double output = Pout + Iout + Dout;
 
-    // Restrict to max/min
+    //sprawdzenie i dostosowanie wzmocnienia do granicznych wartości podanych przez użytkownika
     if( output > _max )
         output = _max;
     else if( output < _min )
         output = _min;
 
-    // Save error to previous error
+    //zapisanie aktualnego błędu w celu użycia go w obliczeniach podczas kolejnej iteracji
     previous_error = error;
 
 return output;

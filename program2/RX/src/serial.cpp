@@ -62,9 +62,9 @@ void set_blocking (int fd, int should_block)
                 error_message ("error %d setting term attributes", errno);
 }
 
-/*
+
 void error_message(char* msg, int arg)
 {
     printf(msg, arg);
 }
-*/
+

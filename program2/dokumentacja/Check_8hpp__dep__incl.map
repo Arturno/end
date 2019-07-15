@@ -1,0 +1,7 @@
+<map id="RX/headers/Check.hpp" name="RX/headers/Check.hpp">
+<area shape="rect" id="node2" href="$receivingPackets_8hpp.html" title="Plik zawierający fukcje do odbioru pakietów przesłanych za pomocą różnych protokołów. " alt="" coords="5,155,225,181"/>
+<area shape="rect" id="node5" href="$Measure_8hpp.html" title="Plik zawierający definicję klasy Measure oraz funkcje przez nią wykorzystywane. " alt="" coords="227,80,398,107"/>
+<area shape="rect" id="node3" href="$receiver_8hpp.html" title="Plik zawierający część programu po stronie odbiorczej receiver() " alt="" coords="143,229,309,256"/>
+<area shape="rect" id="node4" href="$main_8hpp.html" title="Plik zawierający głowną funckję programu. " alt="" coords="189,304,263,331"/>
+<area shape="rect" id="node6" href="$savetofile_8hpp.html" title="Plik zawierający funkcje odpowiadające za zapis wyników testu do pliku. " alt="" coords="250,155,426,181"/>
+</map>

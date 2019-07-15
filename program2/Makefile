@@ -21,7 +21,7 @@ PID.o: TX/src/PID.cpp TX/headers/PID.hpp
 	$(CC) -c -Wall -pedantic TX/src/PID.cpp
 
 sendingPackets.o: TX/src/sendingPackets.cpp TX/headers/sendingPackets.hpp
-	$(CC) -c -Wall -pedantic TX/src/sendingPackets.cpp
+	$(CC) -c -Wall TX/src/sendingPackets.cpp
 
 ControlTX.o: TX/src/ControlTX.cpp TX/headers/ControlTX.hpp
 	$(CC) -c -Wall -pedantic TX/src/ControlTX.cpp
@@ -36,7 +36,7 @@ receivingPackets.o: RX/src/receivingPackets.cpp RX/headers/receivingPackets.hpp 
 	$(CC) -c -Wall -pedantic RX/src/receivingPackets.cpp
 
 Check.o: RX/src/Check.cpp RX/headers/Check.hpp RX/headers/savetofile.hpp TransmissionArrangement.hpp
-	$(CC) -c -Wall -pedantic RX/src/Check.cpp
+	$(CC) -c -Wall RX/src/Check.cpp
 
 savetofile.o: RX/src/savetofile.cpp RX/headers/savetofile.hpp TransmissionArrangement.hpp RX/headers/ControlRX.hpp RX/headers/Measure.hpp
 	$(CC) -c -Wall -pedantic RX/src/savetofile.cpp

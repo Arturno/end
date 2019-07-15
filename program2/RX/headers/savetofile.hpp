@@ -22,12 +22,7 @@ using namespace std;
  * @return string nazwa pliku
  */
 string cr_filename(class TransmissionArrangement parameters);
-/**
- * @brief funkcja pobierająca odbieraną moc sygnału i wyznaczoną przez system jakość linku 
- * 
- * @return string wartości pobrane z plików systemowych
- */
-string signal_level();
+
 /**
  * @brief funkcja realizująca zapis wyników pomiarów do pliku 
  * @details funkcja tworzy obiekt klasy Measure z aktualnymi wartościami zczytanymi z odpowiednich częsci programu

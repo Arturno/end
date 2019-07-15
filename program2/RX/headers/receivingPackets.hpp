@@ -1,7 +1,7 @@
 #ifndef RCV
 #define RCV
 /**
- * @file receiving.hpp
+ * @file receivingPackets.hpp
  * @brief Plik zawierający fukcje do odbioru pakietów przesłanych za pomocą różnych protokołów
  * 
  */
@@ -25,7 +25,7 @@
  * @param packet_size rozmiar przesyłanego pakietu
  * @param counter liczba odebranych pakietów
  * @param state zmienna kontrolująca czy nadal nalezy odbirać pakiety
- * @param chk 
+ * @param chk klasa przechowująca informacje potrzebne do sprawdzania odebranych pakietów
  */
 void odbieranieUDP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size ,unsigned int &counter, int &state, class CheckPackets &chk);
 /**
@@ -34,20 +34,12 @@ void odbieranieUDP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int p
  * @param TX adres strony nadawczej
  * @param RX adres strony odbiorczej
  * @param packet_size rozmiar przesyłanego pakietu
+ * @param counter liczba odebranych pakietów
+ * @param state zmienna kontrolująca czy nadal nalezy odbirać pakiety
+ * @param chk klasa przechowująca informacje potrzebne do sprawdzania odebranych pakietów
  * @param coverage kodowanie pakietu w %
- * @param counter liczba odebranych pakietów
- * @param state zmienna kontrolująca czy nadal nalezy odbirać pakiety
- */
-void odbieranieUDPLite(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size, int coverage,unsigned int &counter, int &state);
-/**
- * @brief 
  * 
- * @param TX adres strony nadawczej
- * @param RX adres strony odbiorczej
- * @param packet_size rozmiar przesyłanego pakietu
- * @param counter liczba odebranych pakietów
- * @param state zmienna kontrolująca czy nadal nalezy odbirać pakiety
  */
-void odbieranieTCP(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size,unsigned int &counter, int &state);
+void odbieranieUDPLite(struct sockaddr_in TX_meas, struct sockaddr_in RX_meas, int packet_size ,unsigned int &counter, int &state, class CheckPackets &chk, int &coverage);
 
 #endif 

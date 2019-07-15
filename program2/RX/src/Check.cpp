@@ -16,7 +16,11 @@ CheckPackets::CheckPackets(int packetsize, int protocol)
 char *CheckPackets::add()
 {
     int temp = adding;
+
+    //wyznaczanie pozycji w tabeli do wpisania pakitu
     adding = (adding + 1) % TABLE_SIZE;
+
+    //sprawdzanie czy wyznaczone miejsce w tabeli jest wolne (pakiet został juz sprawdzony)
     if (temp == check)
     {
         err = true;
@@ -27,18 +31,18 @@ char *CheckPackets::add()
 }
 
 int CheckPackets::toCheck()
-{
+{   
+    //jesli miejsce do sprawdzenia jest równe miejscu w którym powinien zostac dodany pakiet to oznacza ze nie ma pakietu do sprawdzenia
     if ((check + 2) % TABLE_SIZE == adding)
     {
-        //cout << "CZEKA" << endl;
         return 1;
     }
     else
     {
+        //przesunięcie pozycji do sprawdzenia o jeden 
         check = (check + 1) % TABLE_SIZE;
-        //cout << "SPRAWDZONE " << sprawdzanie << endl;
+        //sprawdzenie poprawnosci odebrania pakietu
         calculate();
-        //cout << bufor[sprawdzanie] << endl;
         checked++;
         return 0;
     }
@@ -46,9 +50,7 @@ int CheckPackets::toCheck()
 
 double CheckPackets::getResults()
 {
-    //cout << "DODANE " << dodane << endl;
-    //cout << "SPRAWDZONE " << sprawdzone << endl;
-    //cout << "BLAD" << blad << endl;
+    //obliczenie błędu w odebranych pakietach
     errors = (double)((checked * packet_size) - bit_errors) / (checked * packet_size) * 100;
     added = 0;
     checked = 0;
@@ -62,97 +64,46 @@ double CheckPackets::getResults()
 void check(class CheckPackets &chk, int &state)
 {
     while (state)
-    {
+    {   
+        //sprawdzanie czy jest pakiet do sprawdzenia
         if (chk.toCheck())
+            //jesli nie, sprawdzanie wstrzymuje się na 1000ns
             usleep(1000);
     }
 }
-/*
 
-void Sprawdzanie::spr()
-{
-    int nrpakietu;
-    usleep(90000);
-    if (((sprawdzanie + 1) % ROZMIAR_TABLICY) != dodawanie)
-    {
-        sprawdzanie = (sprawdzanie + 1) % ROZMIAR_TABLICY;
-        //cout << "SPR" << sprawdzanie;
-        nrpakietu = tablica[sprawdzanie];
-        //cout << "AKT" << aktualny << "NRPAK" << nrpakietu << endl;
-        if (aktualny == nrpakietu)
-        {
-            aktualny = (aktualny + 1) % 100;
-        }
-        else
-        {
-            if (aktualny < nrpakietu)
-            {
-                stracone += (nrpakietu - aktualny);
-                aktualny = (nrpakietu + 1) % 100;
-                cout << "stracone" <<stracone<< endl;
-            }
-            else
-            {
-                if (aktualny > nrpakietu)
-                {
-                    zamienione = true;
-                    stracone--;
-                    cout << "Zamienione" << endl;
-                }
-            }
-        }
-        sprawdzone++;
-    }
-}
-
-void Sprawdzanie::wypisanie()
-{
-    cout<<"SPRAWDZONE: "<<sprawdzone<<endl;
-    cout<<"Zamienione: "<<zamienione<<endl;
-    cout<<"Stracone: "<<stracone<<endl;
-}
-*/
 void CheckPackets::checkOrder(unsigned int received_packet)
 {
-    //fstream file;
-    //file.open("test.txt", ios::app);
-    //cout<< "A " << packet_number << "NR " << received_packet;
-    //cout<< received_packet << endl;
+    //sprawdzenie czy nie ma zbyt dużej rozbieżności między numere poprzednio odebranego pakietu a obecnym
     if (((packet_number - received_packet) % UINT_MAX) > 1000)
     {
-        //packet_number = received_packet;
         lost++;
         err = true;
-        //cout << "A" << packet_number << "NR" << received_packet << endl;
-        //file<<" BLAD"<<endl;
     }
+
+    //sprawdzenie kolejności
     if (packet_number == received_packet)
     {
         packet_number = (received_packet + 1) % UINT_MAX;
-        //file<<" OK"<<endl;
     }
+    //jeśli kolejność nie jest odpowiednia 
     else
-    {
+    {   
+        //sprawdzenie czy numer odebranego pakietu jest wiekszy od prognozowanego
         if (packet_number < received_packet)
         {
+            //wyznaczenie liczby straconych pakietów
             lost += (received_packet - packet_number);
             packet_number = (received_packet + 1) % UINT_MAX;
-            //file<<" PN<RP"<<endl;
-            //cout<<"stracone"<<endl;
         }
         else
         {
-            if (packet_number > received_packet)
-            {
-                not_in_order = true;
-                if(lost > 0)
-                    lost--;
-                //file<<" Zamienione"<<endl;
-                //cout << "A" << packet_number << "NR" << received_packet << endl;
-            }
+            //ustawienie flagi zmiany kolejnosci i zmniejszenie liczby utraconych pakietów
+            not_in_order = true;
+            if(lost > 0)
+                lost--;
         }
     }
-    //file.close();
 }
 void CheckPackets::calculate()
 {
@@ -160,35 +111,30 @@ void CheckPackets::calculate()
     char temp[12];
     char buf[packet_size - 12];
     char original_package[packet_size - 12];
+
+    //przygotowanie wzorcowego pakietu
     srand(50);
     for (int i = 0; i < (packet_size - 12); i++)
     {
         original_package[i] = ((rand() % ('z' - 'a')) + 'a');
     }
     original_package[packet_size - 12] = '\0';
-    //wzor[100] = 'x';
-    //cout<<"ODEBRANE"<<wzor<<endl;
-    //if (((sprawdzanie + 1) % 100) != dodawanie)
-    //{
-    //cout<<"NRPakietu"<<nrpakietu<<endl;
-    //cout<<"Dodawanie"<<spr.dodawanie<<endl;
-    //cout<<"Sprawdzenie ak"<<spr.sprawdzanie<<endl;
+
+    //podział pakietu na numer pakietu i losowy ciąg znaków
     strncpy(temp, buffer[check], 12);
     received_packet = atoi(temp);
     strncpy(buf, &(buffer[check])[12], (packet_size - 12));
-    //cout<<aktualny;
-    //cout<<buf<<endl;
-    //cout<<bufor<<endl;
+
+    //sprawdzenie kolejności odebranych pakietów
     checkOrder(received_packet);
 
-    //cout<<"WZ :"<<wzor<<" " <<"BU :"<<buf<<endl;
+    //jeśli użyty protokół to UDP-Lite - sprawdzenie poprawności odebranego pakietu
     if (protocol == 1)
     {
         for (int i = 0; i < packet_size - 12; i++)
         {
             if (original_package[i] != buf[i])
             {
-                //cout<<"WZ :"<<wzor<<" " <<"BU :"<<buf<<endl;
                 bit_errors++;
             }
         }
@@ -197,19 +143,4 @@ void CheckPackets::calculate()
     {
         bit_errors = 0;
     }
-
-    /*
-            sprawdzone++;
-            //cout << "OKOK" << endl;
-            blad+=przeklamane;
-            sprawdzanie = (sprawdzanie+1)%100;
-        }
-        /*
-    cout<<"sprawdzone"<<spr.odebraneIsprawdzone<<endl;
-    cout<<"blad"<<(double)spr.blad/((double)spr.odebraneIsprawdzone*20)*100<<endl<<endl;
-    cout<<"stracone"<<spr.stracone<<endl;
-    cout<<"zamienione"<<spr.zamienione<<endl;
-    cout<<"err"<<spr.err<<endl;
-    */
-    // }
 }

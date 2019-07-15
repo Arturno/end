@@ -1,0 +1,16 @@
+<map id="main.hpp" name="main.hpp">
+<area shape="rect" id="node3" href="$transmitter_8hpp.html" title="Plik zawierający stronę nadawczą programu transmitter() " alt="" coords="1215,155,1395,181"/>
+<area shape="rect" id="node23" href="$receiver_8hpp.html" title="Plik zawierający część programu po stronie odbiorczej receiver() " alt="" coords="910,80,1077,107"/>
+<area shape="rect" id="node5" href="$TransmissionArrangement_8hpp.html" title="Plik zawierający klasę TransmissionArrangement oraz fukcje przez nią uzywane. " alt="" coords="1115,379,1338,405"/>
+<area shape="rect" id="node15" href="$sendingPackets_8hpp.html" title="Plik zawierający funkcje realizujące wysyłanie pakietów. " alt="" coords="1858,229,1998,256"/>
+<area shape="rect" id="node19" href="$ControlTX_8hpp.html" title="Plik zawierający klasę ControlTX, kontrolującą stan programu po stronie nadawczej. " alt="" coords="1275,304,1381,331"/>
+<area shape="rect" id="node20" href="$adaptation_8hpp.html" title="Plik zawierający funkcję odpowiadającą za dostosowanie czasu opóźnienia wysyłanych pakietów..." alt="" coords="1360,229,1467,256"/>
+<area shape="rect" id="node22" href="$PID_8hpp.html" title="Plik zawierający klasę realizującą regulację PID. " alt="" coords="1743,304,1814,331"/>
+<area shape="rect" id="node24" href="$receivingPackets_8hpp.html" title="Plik zawierający fukcje do odbioru pakietów przesłanych za pomocą różnych protokołów. " alt="" coords="920,229,1067,256"/>
+<area shape="rect" id="node28" href="$savetofile_8hpp.html" title="Plik zawierający funkcje odpowiadające za zapis wyników testu do pliku. " alt="" coords="703,155,806,181"/>
+<area shape="rect" id="node30" href="$ControlRX_8hpp.html" title="Plik zawierający klasę ControlRX, kontrolującą stan programu po stronie odbiorczej. " alt="" coords="423,304,531,331"/>
+<area shape="rect" id="node31" href="$position_8hpp.html" title="Plik zawierający fukncje wykorzystywane do odbioru danych z enkodera. " alt="" coords="154,229,246,256"/>
+<area shape="rect" id="node26" href="$Check_8hpp.html" title="Plik zawierający klasę CheckPackets i funkcje przez nią wykorzystywane. " alt="" coords="931,304,1016,331"/>
+<area shape="rect" id="node29" href="$Measure_8hpp.html" title="Plik zawierający definicję klasy Measure oraz funkcje przez nią wykorzystywane. " alt="" coords="594,229,691,256"/>
+<area shape="rect" id="node32" href="$serial_8hpp.html" title="Plik zawierający funckje wykorzystywane do połączenia z kontrolerem enkodera za pomocą portu szeregow..." alt="" coords="87,379,166,405"/>
+</map>

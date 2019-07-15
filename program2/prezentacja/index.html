@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Pomiar przepływnosci</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script src="chart.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body style="background-color:#BED0F4">
+	<div style="background-color:#7E96C4; max-width:1500px;margin:10px auto 0 auto; border-radius:20px; border:2px solid #b9c6de; box-shadow:10px 15px 20px #917ab0">
+	<div id="header" style="padding:20px;background-color:#8BA6E9; max-width:1220px;margin:10px auto 0 auto; border:2px solid #ede9f2">
+		<h1>Wyświetlanie wyników testu aplikacji do pomiaru łącz radiowych</h1>
+	</div>
+	</br>
+	</br>
+	</br>
+	<div id="file" style="max-width:1220px;margin:10px auto 0 auto;background-color:#8BA6E9;padding:20px">
+         <form id="file-form">
+            <label class="btn btn-primary" for="my-file-selector">
+              <input id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val()); handleFiles(this.files);">
+                Wybierz plik
+              </label>
+              <span class='label label-info' id="upload-file-info"></span>
+          </form>
+		  <a onClick="displayParameters()" class="btn btn-primary" href="#" role="button">Wczytaj plik</a>
+	</div>
+	
+	<div id="parameters" style="height: 300px;max-width:1220px;margin:10px auto 0 auto;background-color:#8BA6E9;padding:20px">
+		<h2>Parametry:</h2>
+		<div id="param"></div>
+	</div>
+	
+	<div id="draw-chart" style="max-width:800px;margin:10px auto 0 auto; background-color:#8BA6E9;padding:20px">
+		<form method="get" name="os">
+		<div id ="x" style="float:left;width:50%">
+		<h3>Oś X</h3>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="czas-x" value="0" checked>
+				<label class="form-check-label" for="czas-x">
+					Czas
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="polozenie-x" value="2" >
+				<label class="form-check-label" for="polozenie-x">
+					Położenie
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="zadana-przepływność-x" value="1" >
+				<label class="form-check-label" for="zadana-przepływność-x">
+					Zadana przepływność
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="przepływność-x" value="6" >
+				<label class="form-check-label" for="przepływność-x">
+					Przepływność
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="poziom-x" value="3" >
+				<label class="form-check-label" for="poziom-x">
+					Poziom sygnału
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="jakość-x" value="4" >
+				<label class="form-check-label" for="jakość-x">
+					Jakość linku
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="odebrane-x" value="5" >
+				<label class="form-check-label" for="odebrane-x">
+					Liczba odebranych pakietów
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="stracone-x" value="7" >
+				<label class="form-check-label" for="stracone-x">
+					Liczba straconych pakietów
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="ber-x" value="10" >
+				<label class="form-check-label" for="ber-x">
+					BER
+				</label>
+			</div>
+		</div>
+		<div id ="y" style="float:right;width:50%">
+		<h3>Oś Y</h3>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="0"  id="czas-y">
+				<label class="form-check-label" for="czas-y">
+					Czas
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="2" id="polozenie-y">
+				<label class="form-check-label" for="polozenie-y">
+					Położenie
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="1" name = "aaa" id="zadana-przepływność-y">
+				<label class="form-check-label" for="zadana-przepływność-y">
+					Zadana przepływność
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="6" id="przepływność-y">
+				<label class="form-check-label" for="przepływność-y">
+					Przepływność
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="3" id="poziom-y">
+				<label class="form-check-label" for="poziom-y">
+					Poziom sygnału
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="4" id="jakosc-y">
+				<label class="form-check-label" for="jakosc-y">
+					Jakość linku
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="5" id="odebrane-y">
+				<label class="form-check-label" for="odebrane-y">
+					Liczba odebranych pakietów
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="7" id="stracone-y">
+				<label class="form-check-label" for="stracone-y">
+					Liczba straconych pakietów
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="10" id="ber-y">
+				<label class="form-check-label" for="ber-y">
+					BER
+				</label>
+			</div>
+		</div>
+		<input type="button" class="btn btn-secondary btn-lg btn-block" value="Pokaż wykres" onclick="collectDataToChart();">
+		<input type="button" class="btn btn-secondary btn-lg btn-block" value="Pokaż tabele z wynikami" onclick="showtable();">
+	</div>
+	
+	<div id="chart" style="max-width: 1200px; height: 500px;margin:10px auto 0 auto"></div>
+	
+	<div id="t" style="max-width: 1500px; margin:10px auto 0 auto; display:none;">
+		<table class="table table-hover table-sm">
+			<thead id="tblh" class="thead-dark">
+			</thead>
+			<tbody id="tbl">
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+

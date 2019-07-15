@@ -29,8 +29,8 @@ class CheckPackets
     int check;                          /**< miejsce w tablicy w którym jest ostatni sprawdzony pakiet*/
 
     int packet_size;                    /**< rozmiar pakietów */
-    int protocol;
-    unsigned int packet_number;
+    int protocol;                       /**< zastosowany protokół */
+    unsigned int packet_number;         /**< liczba poprzednio odebranych pakietów */
     int added;                          /**< liczba dodanych pakietów */
     int checked;                        /**< liczba sprawdzonych palietów*/
     int bit_errors;                     /**< liczva błędnie odebranych bitów*/
@@ -42,6 +42,8 @@ class CheckPackets
 
     /**
      * @brief Konstruktor klasy
+     * @param packetsize rozmiar pojedynczego pakietu
+     * @param protocol protokół zastosowany przy transmisji
      * @details Ustawia odpowiednie flagi, nie pobiera informacji od użytkownika
      */
     CheckPackets(int packetsize, int protocol);
@@ -64,10 +66,8 @@ class CheckPackets
      */
     double getResults();
     /**
-     * @brief 
+     * @brief metoda do pobierania wyników pomiaru
      * 
-     * @param packet_number 
-     * @param received_packet 
      */
     void checkOrder(unsigned int received_packet);
     /**

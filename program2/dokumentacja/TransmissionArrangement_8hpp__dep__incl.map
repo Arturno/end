@@ -1,0 +1,14 @@
+<map id="TransmissionArrangement.hpp" name="TransmissionArrangement.hpp">
+<area shape="rect" id="node2" href="$transmitter_8hpp.html" title="Plik zawierający stronę nadawczą programu transmitter() " alt="" coords="48,229,228,256"/>
+<area shape="rect" id="node4" href="$ControlTX_8hpp.html" title="Plik zawierający klasę ControlTX, kontrolującą stan programu po stronie nadawczej. " alt="" coords="132,80,309,107"/>
+<area shape="rect" id="node7" href="$receiver_8hpp.html" title="Plik zawierający część programu po stronie odbiorczej receiver() " alt="" coords="513,304,680,331"/>
+<area shape="rect" id="node8" href="$Check_8hpp.html" title="Plik zawierający klasę CheckPackets i funkcje przez nią wykorzystywane. " alt="" coords="680,80,839,107"/>
+<area shape="rect" id="node11" href="$savetofile_8hpp.html" title="Plik zawierający funkcje odpowiadające za zapis wyników testu do pliku. " alt="" coords="571,229,747,256"/>
+<area shape="rect" id="node12" href="$ControlRX_8hpp.html" title="Plik zawierający klasę ControlRX, kontrolującą stan programu po stronie odbiorczej. " alt="" coords="418,80,599,107"/>
+<area shape="rect" id="node3" href="$main_8hpp.html" title="Plik zawierający głowną funckję programu. " alt="" coords="361,379,435,405"/>
+<area shape="rect" id="node5" href="$sendingPackets_8hpp.html" title="Plik zawierający funkcje realizujące wysyłanie pakietów. " alt="" coords="33,155,243,181"/>
+<area shape="rect" id="node6" href="$adaptation_8hpp.html" title="Plik zawierający funkcję odpowiadającą za dostosowanie czasu opóźnienia wysyłanych pakietów..." alt="" coords="267,155,446,181"/>
+<area shape="rect" id="node9" href="$receivingPackets_8hpp.html" title="Plik zawierający fukcje do odbioru pakietów przesłanych za pomocą różnych protokołów. " alt="" coords="772,229,992,256"/>
+<area shape="rect" id="node10" href="$Measure_8hpp.html" title="Plik zawierający definicję klasy Measure oraz funkcje przez nią wykorzystywane. " alt="" coords="674,155,845,181"/>
+<area shape="rect" id="node13" href="$position_8hpp.html" title="Plik zawierający fukncje wykorzystywane do odbioru danych z enkodera. " alt="" coords="331,229,497,256"/>
+</map>

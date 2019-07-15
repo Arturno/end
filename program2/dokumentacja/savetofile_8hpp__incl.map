@@ -1,0 +1,6 @@
+<map id="RX/headers/savetofile.hpp" name="RX/headers/savetofile.hpp">
+<area shape="rect" id="node6" href="$TransmissionArrangement_8hpp.html" title="Plik zawierający klasę TransmissionArrangement oraz fukcje przez nią uzywane. " alt="" coords="423,229,646,256"/>
+<area shape="rect" id="node15" href="$Measure_8hpp.html" title="Plik zawierający definicję klasy Measure oraz funkcje przez nią wykorzystywane. " alt="" coords="486,80,583,107"/>
+<area shape="rect" id="node16" href="$ControlRX_8hpp.html" title="Plik zawierający klasę ControlRX, kontrolującą stan programu po stronie odbiorczej. " alt="" coords="703,155,811,181"/>
+<area shape="rect" id="node17" href="$Check_8hpp.html" title="Plik zawierający klasę CheckPackets i funkcje przez nią wykorzystywane. " alt="" coords="492,155,577,181"/>
+</map>
